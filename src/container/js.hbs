@@ -13,65 +13,32 @@
             <h1>{{name}}</h1>
             <hr>
             <br>
+            <p><mark>Name: {{name}}</mark>JavaScript</p>
             <p><mark>Description: {{description}}</mark>JavaScript is a popular high-level, dynamic, and interpreted
                 programming language.</p>
-            <p><mark>History{{history}}</mark>1995, Brendan Eich</p>
-            <p><mark>Date {{date}}:</mark>2023-06-15</p>
-            <br>
-            {{#with program}}
-            <b>
-                <address>
-                    <p>Location</p>
-                </address>
-            </b>
-            <ul>
-                <li>
-                    <address>city: {{city}}</address>
-                </li>
-                <li>
-                    <address>country: {{country}}</address>
-                </li>
-                <li>
-                    <address>date: {{date}}</address>
-                </li>
-                <li>
-                    <address>program: {{program}}</address>
-                </li>
-                <li>
-                    <address>guide: {{guide}}</address>
-                </li>
-                <li>
-                    <address>performers: {{performers}}</address>
-                </li>
-            </ul>
-            {{/with}}
-            <br>
-            <b>
-                <p>Education:</p>
-            </b>
-            {{#each education}}
-            <ul>
-                <li>Degree: {{degree}}</li>
-                <li>Major: {{major}}</li>
-                <li>University: {{university}}</li>
-                <li>Year of Graduation {{graduationYear}}</li>
-            </ul>
-            {{/each}}
-            {{#each workExperience}}
-            <b>
-                <p>Work experience</p>
-            </b>
-            <ul>
-                <li>Company: {{company}}</li>
-                <li>Title: {{title}}</li>
-                <li>Start date: {{startDate}}</li>
-                <li>End date: {{endDate}}</li>
-                <li>Responsibilities: {{responsibilities}}</li>
-                <li>Year founded: {{year_founded}}</li>
-                <li>Industry: {{industry}}</li>
-                <li>Employees: {{employees}}</li>
-            </ul>
-            {{/each}}
+            <p><mark>History: {{history}}</mark></p>
+            <p><mark>Year: {{year}}</mark>1995</p>
+            <p><mark>Founder: {{founder}}</mark>Brendan Eich</p>
+            <p><mark>Types: {{types}}</mark>Number, String, Boolean, Null, Undefined, Symbol, Object</p>
+            <p><mark>Syntax: {{syntax}}</mark></p>
+            <p><mark>Variables: {{variables}}</mark>var, let, const</p>
+            <p><mark>Functions: {{functions}}</mark>function</p>
+            <p><mark>Conditionals: {{conditionals}}</mark>if, else, switch</p>
+            <p><mark>Loops: {{loops}}</mark>for, while, do-while</p>
+            <p><mark>Classes: {{classes}}</mark>class</p>
+            <p><mark>Features: {{features}}</mark>First-class functions, Closures, Dynamic typing, Prototype-based
+                inheritance, Asynchronous programming with Promises and async/await, Modules with import/export
+                statements
+                Symbol,
+                Object</p>
+            <p><mark>Libraries: {{libraries}}</mark>jQuery, React, Angular, Vue, Node.js, Express.js, Lodash, Moment.js
+            </p>
+            <p><mark>Tools: {{tools}}</mark>Babel, Webpack, ESLint, Jest, Mocha, Chai, Selenium, Cypress
+            </p>
+            <p><mark>Community: {{community}}</mark></p>
+            <p><mark>Name: {{name}}</mark>Stack Overflow, JavaScript Weekly, The Changelog, CSS-Tricks</p>
+            <p><mark>Type: {{type}}</mark>forum, newsletter, podcast, blog</p>
+
         </section>
     </main>
     {{/with}}
