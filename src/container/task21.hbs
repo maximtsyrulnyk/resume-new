@@ -1,0 +1,77 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+
+    <main>
+        <section>
+            {{> title data='task21' big=true}}
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    {{main}}
+                    <h1>{{title}}</h1>
+                    <hr>
+                    <br>
+                    <p>Text: {{text}}JavaScript is a popular high-level, dynamic, and interpreted programming
+                        language.</p>
+                    <p>Button text {{button_text}}</p>
+                    <p>Solid {{solid}}</p>
+                    <p>Outline {{outline}}</p>
+                </div>
+            </div>
+            {{!--{{main}}
+            <h1>{{title}}</h1>
+            <hr>
+            <br>
+            <p>Text: {{text}}JavaScript is a popular high-level, dynamic, and interpreted programming
+                language.</p>
+            <p>Button text {{button_text}}</p>
+            <p>Solid {{solid}}</p>
+            <p>Outline {{outline}}</p>--}}
+            <div class="card">
+                <div class="card-body">
+                    {{second}}
+                    <p>Title {{title}}</p>
+                    <p>Text {{text}}</p>
+                    <p>Button text {{button_text}}</p>
+                    <p>Solid {{solid}}</p>
+                    <p>Outline {{outline}}</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    {{subblock}}
+                    <p>Title {{title}}</p>
+                    <p>Text {{text}}</p>
+                    <p>Button text {{button_text}}</p>
+                    <p>Solid {{solid}}</p>
+                    <p>Outline {{outline}}</p>
+                    {{nested_display}}
+                    <p>Title {{title}}</p>
+                    {{children_display}}
+                    {{title}}
+                    {{text}}
+                    {{button}}
+                    {{header_text}}
+                    {{paragraph}}
+                    {{title}}
+                    {{text}}
+                    {{button}}
+                    {{text}}
+                    {{url}}
+                    {{list_name}}
+                    {{text}}
+                    {{url}}
+                </div>
+            </div>
+
+            {{!--<div class="card">
+                <div class="card-body">
+                </div>
+            </div>--}}
+        </section>
+    </main>
+</div>

@@ -7,26 +7,17 @@
 
 <head>
     <title>
-        {{page.title}}
-        Page name
     </title>
-    <meta charset="utf-8" />
-    <link href='css/index.css' rel="stylesheet" />
+    <meta charset='utf-8' />
+    <link href='css/index.css' rel='stylesheet' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alphal/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZL1603oVMWSktQOp6b7InlZ13/3r59b6EGGoIlaFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
-<body>
-    {{> nav}}
-    <br>
-    <hr>
-    {{! ця сторінка показує куди шаблонізатору треба вставляти код з container файлу --}}
-    {{!
-    {{#with header}}
+<body class="m-5">
+    {{! І ця кострукція показує куди иіаблонізатору треба вставляти код з container файлу --}}
     {{{body}}}
-    <br>
-    <hr>
-
-    {{> footer social=footer.social firstname=header.name.firstname lastname=header.name.lastname
-    address=header.address}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alphal/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
