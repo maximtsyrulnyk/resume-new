@@ -13,38 +13,44 @@
                 <div class="card-body">
                     {{main}}
                     <h1>{{title}}</h1>
-                    <hr>
+                    <h1>H1 Heading</h1>
+                    <span class="text-muted">Paragraph</span>
+                    <br>
+                    <!--<hr>
                     <br>
                     <p>Text: {{text}}JavaScript is a popular high-level, dynamic, and interpreted programming
                         language.</p>
                     <p>Button text {{button_text}}</p>
                     <p>Solid {{solid}}</p>
-                    <p>Outline {{outline}}</p>
+                    <p>Paragraph {{outline}}</p>-->
+                    <button class="btn btn-primary">Primary</button>
+                    <br>
+                    <br>
+                    <button class="btn btn-outline-primary">Outline Primary</button>
                 </div>
             </div>
-            {{!--{{main}}
-            <h1>{{title}}</h1>
-            <hr>
-            <br>
-            <p>Text: {{text}}JavaScript is a popular high-level, dynamic, and interpreted programming
-                language.</p>
-            <p>Button text {{button_text}}</p>
-            <p>Solid {{solid}}</p>
-            <p>Outline {{outline}}</p>--}}
             <div class="card">
                 <div class="card-body">
                     {{second}}
-                    <p>Title {{title}}</p>
+                    <h2>H2 Heading second</h2>
+
+                    <span class="text-muted">Paragraph</span>
+                    <br>
+                    <!--<p>Title {{title}}</p>
                     <p>Text {{text}}</p>
                     <p>Button text {{button_text}}</p>
                     <p>Solid {{solid}}</p>
-                    <p>Outline {{outline}}</p>
+                    <p>Outline {{outline}}</p>-->
+                    <button class="btn btn-secondary">Secondary</button>
+                    <br>
+                    <br>
+                    <button class="btn btn-outline-secondary">Outline Secondary</button>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
                     {{subblock}}
-                    <p>Title {{title}}</p>
+                    <!--<p>Title {{title}}</p>
                     <p>Text {{text}}</p>
                     <p>Button text {{button_text}}</p>
                     <p>Solid {{solid}}</p>
@@ -65,13 +71,43 @@
                     {{list_name}}
                     {{text}}
                     {{url}}
+                    <br>-->
+                    <h2>H3 Heading subblock</h2>
+
+                    <span class="text-muted">Paragraph</span>
+                    <br>
+
+                    <button class="btn btn-dark">Dark</button>
+                    <br>
+                    <br>
+                    <button class="btn btn-outline-dark">Dark</button>
+
                 </div>
             </div>
-
-            {{!--<div class="card">
+            <div class="card">
                 <div class="card-body">
+                    <h1>Display 1 nested</h1>
+                    <div class="card-body">
+                        <h4>Display 4 children</h4>
+                        <p>Paragraph</p>
+                        <button class="btn btn-outline-warning">Warning</button>
+
+                    </div>
+                    <h6>H6 Heading</h6>
+                    <button class="btn btn-info">Info</button>
+
                 </div>
-            </div>--}}
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <p>PARAGRAPH</p>
+                    <p>paragraph</p>
+                    <hr>
+                    <div class="card-body">Link</div>
+                    <!--<a href="#" class="btn btn-link"></a>-->
+                    <hr>
+                </div>
+            </div>
         </section>
     </main>
 </div>
