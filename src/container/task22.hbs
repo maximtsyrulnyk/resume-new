@@ -4,11 +4,20 @@
 --}}
 <div>
     <main>
+        {{#with section}}
         <section>
             {{> title data='task22' big=true}}
             <hr>
             <h1 class="text-center">H1 Heading</h1>
             <h6 class="text-center">PARAGRAPH</h6>
+            <section class="card">
+                <div class="card-body">
+                    <h2 class="display-6 text-end">{{about_us.title_list.main}}</h2>
+                    <p class="text-end"> {{about_us.title_list.sub}}</p>
+                    <button class="btn btn-outline-info">{{about_us.button.text}}</button>
+                </div>
+            </section>
+
             <!--<hr>
             <div class="card">
                 <div class="card-body">
@@ -23,7 +32,54 @@
 </div>
 <div class="card">
     <div class="card-body">
-        <h2 class="text-end">Display 6</h2>
+        {{#with about_us}}
+        {{#with title_list}}
+        <!--{{main}}
+        {{sub}}-->
+        {{/with}}
+        {{#with button}}
+        {{text}}
+        {{/with}}
+        {{/with}}
+        {{#with advantage}}
+        {{title}}
+        {{#with efficiency}}
+        <!--{{title}}-->
+        {{sub_title}}
+        {{description}}
+        {{button}}
+        {{/with}}
+        <!--{{#with innovation}} {{title}} {{sub_title}} {{description}} {{button}} {{/with}}
+        {{#with collaboration}} {{title}} {{sub_title}} {{description}} {{button}} {{/with}}-->
+
+        {{/with}}
+        {{#with agreement}}
+        <!--{{title}}
+        {{#with info}}
+        {{sub_title}}
+        {{#with detail}}{{text}} {{button}}{{/with}}
+        {{/with}}
+        {{/with}}
+-->
+        {{#with section}}
+        <section class="card">
+            <div class="card-body">
+                <h2 class="display-6 text-end">{{about_us.title_list.main}}</h2>
+                <p class="text-end"> {{about_us.title_list.sub}}</p>
+                <button class="btn btn-outline-info">{{about_us.button.text}}</button>
+            </div>
+        </section>
+        {{/with}}
+        <li>
+            <address>title: {{title}}</address>
+            <address>sub_title: {{sub_title}}</address>
+            <address>description: {{description}}</address>
+            <address>main: {{main}}</address>
+            <address>sub: {{sub}}</address>
+            <address>text: {{text}}</address>
+            <address>sub title: {{sub_title}}</address>
+            <address>button: {{button}}</address>
+        </li>
         <h2 class="text-end">H2 Heading</h2>
         <button class="btn btn-outline-info">Info</button>
     </div>
@@ -71,5 +127,6 @@
 </div>
 </div>
 </section>
+{{/with}}
 </main>
 </div>
