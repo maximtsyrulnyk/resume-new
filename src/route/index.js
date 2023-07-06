@@ -605,7 +605,7 @@ router.get('/task22', function (req, res) {
           main: 'InnovaMind',
           sub: 'InnovaMind is a forward-thinking startup focused on innovation. We are dedicated to creating efficient and powerful software through the use of first-class functions.',
         },
-        button: { text: 'Show more' },
+        button: { text: 'Info' },
       },
       advantage: {
         title: 'Advantage',
@@ -614,7 +614,7 @@ router.get('/task22', function (req, res) {
           sub_title: 'Streamline your software development',
           description:
             'Streamline your software development with our innovative platform...',
-          button: 'Show more',
+          button: 'Warning',
         },
         innovation: {
           title: 'Innovation',
@@ -622,14 +622,14 @@ router.get('/task22', function (req, res) {
             'Forward-thinking approach to programming',
           description:
             ' Stay ahead of the curve with our forward-thinking approach to programming...',
-          button: 'Show more',
+          button: 'Warning',
         },
         collaboration: {
           title: 'Collaboration',
           sub_title: 'Connect with like-minded developers',
           description:
             'Connect with a community of like-minded developers to share knowledge and insights...',
-          button: 'Show more',
+          button: 'Warning',
         },
       },
       agreement: {
