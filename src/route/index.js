@@ -626,7 +626,7 @@ router.get('/task31', function (req, res) {
       cards: [
         {
           picture: {
-            src: 'https://picsum.photos/400/200',
+            src: 'http://surl.li/jcakg',
             alt: 'New York',
           },
           title: 'New York City',
@@ -639,7 +639,7 @@ router.get('/task31', function (req, res) {
         },
         {
           picture: {
-            src: 'https://picsum.photos/400/200',
+            src: 'http://surl.li/jcajr',
             alt: 'Paris',
           },
           title: 'Paris',
@@ -652,7 +652,7 @@ router.get('/task31', function (req, res) {
         },
         {
           picture: {
-            src: 'https://picsum.photos/400/200',
+            src: 'http://surl.li/jcakv',
             alt: 'Tokyo',
           },
           title: 'Tokyo',
@@ -665,7 +665,7 @@ router.get('/task31', function (req, res) {
         },
         {
           picture: {
-            src: 'https://picsum.photos/400/200',
+            src: 'http://surl.li/jcamf',
             alt: 'Sydney',
           },
           title: 'Sydney',
