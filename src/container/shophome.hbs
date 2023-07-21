@@ -1,0 +1,132 @@
+{{!--
+Це код container файлу для сторінки shophome,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/shophome"
+--}}
+
+<main>
+
+    {{!-- Меню навігації --}}
+    <header class="mb-5">
+        {{#with navigation}}
+        <div class="card p-3">
+            <nav class="nav row">
+                <div class=""></div>
+                <ul class="col-4">
+                    <li class="d-flex">
+                        {{#each links}}
+                        <a class="nav-link" href="{{href}}">{{text}}</a>
+                        {{/each}}
+                        <a class="disabled nav-link" href="#">Shophome</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {{/with}}
+    </header>
+    <hr>
+    {{!-- Картка №1 --}}
+
+    {{#with newsBlock}}
+    <h1 class="text-center">{{title}}</h1>
+    <div class="row g-1">
+        {{#each cards}}
+        <div class="col-3">
+            <div class="card text-bg-secondary">
+                <div class="card-header">
+                    {{title}}
+                    {{#if isTop}} <div class="badge rounded-pill text-bg-danger">Top</div>{{/if}}
+                    {{#if isNew}} <div class="badge rounded-pill text-bg-success">New</div>{{/if}}
+                </div>
+                <div class="card-body">
+                    {{description}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/with}}
+    <hr>
+    <br>
+    {{!-- Картка №2--}}
+
+    {{#with goodsBlock}}
+    <ul class="nav nav-tabs mb-5">
+        {{#each tabs}}
+        <li class="nav-link {{#if isActive}} active {{/if}} {{#if isDisabled}} disabled {{/if}}">
+            {{name}}{{text}}
+        </li>
+        {{/each}}
+    </ul>
+    {{/with}}
+
+
+    {{#with goodsBlock}}
+
+    <div class="row g-2">
+        {{#each cards}}
+        <div class="col-4">
+            <div class="card">
+                <img src="{{image}}" alt="{{title}}">
+                <div class="card-body">
+                    <h6 class="card-title"> {{title}}
+                        {{#if isHot}}
+                        <div class="badge rounded-pill bg-warning">
+                            Hot
+                        </div>
+                        {{/if}}
+                        {{#if isNew}} <div class="badge rounded-pill bg-primary">New</div>{{/if}}
+                    </h6>
+                    <p class="card-text">{{description}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/with}}
+    <hr>
+    <br>
+    <div class="card">
+        <div class="card-body text-bg-secondary">
+            {{#with subscribe}} <h2>{{header}}</h2>
+            <p>{{description}}</p>
+            {{#each buttons}}
+            <p><button class="btn btn-primary">{{text}}</button></p>
+
+            {{/each}}
+            {{/with}}
+
+        </div>
+
+    </div>
+    <hr>
+    <br>
+    <div class="card">
+        <div class="card-body text-bg-success text-center">
+            {{#with service}} <h4>{{title}}</h4>
+            <p>{{description}}</p> {{#each buttons}}
+            <button class="btn btn-primary">{{text}}</button>
+
+            {{/each}}{{/with}}
+
+        </div>
+
+    </div>
+    <hr>
+    <br>
+    <div class="row g-5">
+        {{#each footer}}
+        <div class="nav col-2">
+            <div>
+                {{#each this}}
+                <div>
+                    <a class="nav-link {{#if @last}} disabled {{/if}}" href="{{this.link}}">{{this.text}}</a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+
+
+    </div>
+
+</main>
