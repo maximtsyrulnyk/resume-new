@@ -588,7 +588,23 @@ router.get('/bootstrap', function (req, res) {
 })
 
 // ================================================================
-// ================================================================
-
+//            ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/list', function (req, res) {
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('list', {
+    // ↙ сюди вводимо JSON дані
+    list: [
+      { name: 'First Button' },
+      { name: 'Secondary Button' },
+      { name: 'Error Button' },
+      { name: 'Submit Button' },
+    ],
+    user: {
+      name: { value: 'Ivan', text: 'Ivanov', value: true },
+    },
+    role: { text: 'Admin' },
+    isConfirm: { age: { value: 32 } },
+  })
+})
 // Підключаємо роутер до бек-енду
 module.exports = router
