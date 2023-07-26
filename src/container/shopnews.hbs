@@ -1,0 +1,147 @@
+{{!--
+Це код container файлу для сторінки shopnews,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/shopnews"
+--}}
+<main>
+    {{!-- Меню навігації --}}
+    <header class="mb-5">
+        {{#with navigation}}
+        <div class="card p-3">
+            <nav class="nav row">
+                <div class=""></div>
+                <ul class="col-4">
+                    <li class="d-flex">
+                        {{#each links}}
+                        <a class="nav-link" href="{{href}}">{{text}}</a>
+                        {{/each}}
+                        <a class="disabled nav-link" href="#">Shopnews</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {{/with}}
+    </header>
+    {{!-- Картка №1 --}}
+    <div class="col-8">
+        <ol class="breadcrumb">
+            {{#each breadcrumb}}
+            <li class="breadcrumb-item"><a href="{{url}}">{{name}}</a></li>
+            {{#if @last}} <li class="breadcrumb-item active" aria-current="page">
+                {{name}}
+            </li>
+            {{/if}}
+            {{/each}}
+        </ol>
+    </div>
+    <div class="card col-6 ">
+        <div class="card-body">
+            {{#with newsData}}
+            <img src="{{photo}}">
+            <p></p>
+            {{#with head}}
+            <div class="card-title">
+                <h6>{{heading}}</h6>
+            </div>
+            <div>
+                <p>{{description}}</p>
+            </div>
+            {{/with}}
+            {{#each body}}
+            <h6>{{title}}</h6>
+            <p>{{text}}</p>
+            {{/each}}
+            {{/with}}
+            <hr>
+            <br>
+            {{#with newsOtherBlock}}
+            <h6 class="text-center ">{{title}}</h6>
+            {{#each cards}}
+            <div class="row">
+                <div class="col-3">
+                    <div class="card text-bg-dark">
+                        {{title}}
+                        {{#if isTop}} <div class="badge rounded-pill text-bg-success">Top</div>{{/if}}
+                        {{#if idNew}} <div class="badge rounded-pill text-bg-danger">New</div>{{/if}}
+                        <div class="card-body text-bg-dark">
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 text-bg-dark">
+                    <div class="card text-bg-dark">
+                        {{title}}
+                        {{#if isTop}} <div class="badge rounded-pill text-bg-success">Top</div>{{/if}}
+                        {{#if idNew}} <div class="badge rounded-pill text-bg-danger">New</div>{{/if}}
+
+                        <div class="card-body text-bg-dark">
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card text-bg-dark">
+                        {{title}}
+                        {{#if isTop}} <div class="badge rounded-pill text-bg-success">Top</div>{{/if}}
+                        {{#if idNew}} <div class="badge rounded-pill text-bg-danger">New</div>{{/if}}
+
+                        <div class="card-body text-bg-dark">
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card text-bg-dark">
+                        {{title}}
+                        {{#if isTop}} <div class="badge rounded-pill text-bg-success">Top</div>{{/if}}
+                        {{#if idNew}} <div class="badge rounded-pill text-bg-danger">New</div>{{/if}}
+
+                        <div class="card-body text-bg-dark">
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{/each}}
+            {{/with}}
+            <hr>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center text-bg-success">
+                        {{#with service}}
+                        <h6>{{title}}</h6>
+                        <p>{{description}}</p>
+                        {{#each buttons}}
+                        <button class="btn btn-primary">
+                            {{text}}
+                            {{link}}
+                        </button>
+
+                        {{/each}}
+                        {{/with}}
+                    </div>
+                </div>
+            </div>
+
+
+            <hr>
+            <br>
+            <div class="row g-5">
+                {{#each footer}}
+                <div class="nav col-2">
+                    <div>
+                        {{#each this}}
+                        <div>
+                            <a class="nav-link {{#if @last}} disabled {{/if}}" href="{{this.link}}">{{this.text}}</a>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+    </div>
+</main>
