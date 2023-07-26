@@ -1,0 +1,144 @@
+{{!--
+Це код container файлу для сторінки shopproduct,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/shopproduct"
+--}}
+<main>
+    {{!-- Меню навігації --}}
+    <header class="mb-5">
+        {{#with navigation}}
+        <div class="card p-3">
+            <nav class="nav row">
+                <div class=""></div>
+                <ul class="col-4">
+                    <li class="d-flex">
+                        {{#each links}}
+                        <a class="nav-link" href="{{href}}">{{text}}</a>
+                        {{/each}}
+                        <a class="disabled nav-link" href="#">Shopproduct</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {{/with}}
+    </header>
+
+    {{!-- Картка №1 --}}
+    <div class="col-8">
+        <ol class="breadcrumb">
+            {{#each breadcrumb}}
+            <li class="breadcrumb-item"><a href="{{url}}">{{name}}</a></li>
+            {{#if @last}} <li class="breadcrumb-item active" aria-current="page">
+                {{name}}
+            </li>
+            {{/if}}
+            {{/each}}
+        </ol>
+    </div>
+    <div class="card col-6">
+        <div class="card-body">
+
+            {{#with productData}}
+            <img src="{{img}}">
+            {{#with info}}
+            <div class="card-title">{{title}}</div>
+            <div>{{about}}</div>
+            <div>{{price}}</div>
+            {{#each category}} {{name}} {{#if isHot}}
+            <div class="badge rounded-pill bg-warning">
+                Hot
+            </div>
+            {{/if}}
+            {{#if idNew}}
+            <div class="badge rounded-pill bg-primary">
+                New
+            </div>
+            {{/if}} {{/each}}
+            {{/with}}
+            {{#each actionList}} <div>{{name}} {{isWarning}} {{isError}} {{isSuccess}} {{isGood}}</div> {{/each}}
+
+            {{#with item}}
+            {{#each head}}
+            {{/each}}
+            {{#each body}} {{/each}}
+            {{/with}}
+            {{#with param}} {{title}} {{#each list}} {{/each}} {{/with}}
+            {{#with alert}} {{isError}} {{text}} {{/with}}
+            {{/with}}
+            <hr>
+            <br>
+            {{#with goodsOtherBlock}}
+            <h6 class="text-center">{{title}}</h6>
+            <div class="row g-2">
+                {{#each cards}}
+                <div class="col-4">
+                    <div class="card">
+                        <img src="{{image}}" alt="{{title}}">
+                        <div class="card-body">
+                            <h6 class="text-center">{{title}}</h6>
+                            {{#if isHot}}
+                            <div class="badge rounded-pill bg-warning">
+                                Hot
+                            </div>
+                            {{/if}}
+                            {{#if isNew}}
+                            <div class="badge rounded-pill bg-primary">
+                                New
+                            </div>
+                            {{/if}}
+                            {{#if isBonus}}
+                            <div class="badge rounded-pill bg-primary">
+                                New
+                            </div>
+                            {{/if}}
+                            <p class="card-text">{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
+
+
+        </div>
+        <div>
+
+        </div>
+        <hr>
+        <br>
+        <div class="card text-bg-success text-center">
+            {{#with service}}
+            <div class="card-body">
+                <h2 class="card-title">{{title}}</h2>
+                <div>{{description}}</div>
+                {{#each buttons}}
+                <a rel="{type}}" class="btn btn-primary me-1 mt-4" href="{link}}">{{text}}</a>
+                {{/each}}
+                </a>
+            </div>
+            {{/with}}
+        </div>
+        <hr>
+        <br>
+        <div class="row g-5">
+            {{#each footer}}
+            <div class="nav col-2">
+                <div>
+                    {{#each this}}
+                    <div>
+                        <a class="nav-link {{#if @last}} disabled {{/if}}" href="{{this.link}}">{{this.text}}</a>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/each}}
+
+
+        </div>
+
+
+
+
+    </div>
+    </div>
+    </div>
+</main>
