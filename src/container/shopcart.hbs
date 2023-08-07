@@ -1,0 +1,134 @@
+{{!--
+Це код container файлу для сторінки shoporder,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/shoporder"
+--}}
+
+<main class="p-5">
+    {{!-- Меню навігації --}}
+    <header class="mb-5">
+        {{#with navigation}}
+        <div class="card p-3">
+            <nav class="nav row">
+                <div class=""></div>
+                <ul class="col-4">
+                    <li class="d-flex">
+                        {{#each links}}
+                        <a class="nav-link " href="{{href}}{{text}}">{{text}}</a>
+                        {{/each}}
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        {{/with}}
+    </header>
+    {{!-- Картка №1 --}}
+    {{#with header}}
+    <h1>{{title}}</h1>
+    {{#with button}}
+    <button class="btn btn-outline-dark">
+        <a href="{{link}}{{text}}">{{text}}</a></button>
+    {{/with}}
+    {{/with}}
+    <hr>
+    <br>
+
+    {{#each goodsBlock}}
+    <div class="p-1 card my-3">
+        <div class="row">
+            <img class="col-2" src="{{image}}" alt="photos">
+            <div class="col-5">
+                <p class="h5">{{name}}</p>
+                <p>{{description}}</p>
+            </div>
+            <div class="col-2 gy-5">
+                {{#with price}}
+                {{title}}
+                <p>{{value}}</p>
+                {{/with}}
+            </div>
+            <div class="col-1">
+                {{amount}}
+            </div>
+            <div class="col-2">
+                {{#each buttons}}
+                <div class="row mx-1">
+                    <button
+                        class="btn {{#if isPrimary}}btn-primary text-bg-light{{/if}} {{#if isDanger}}btn-outline-danger{{/if}} col gy-4 gx-1">
+
+                        <a href="{{link}} {{text}}">{{text}}</a></button>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <hr>
+    <br>
+    {{#with total}}
+    <h3>{{title}}</h3>
+    <h1>{{amount}}</h1>
+    <p>{{delivery}}</p>
+    {{#each buttons}}
+    {{#if isSuccess}} <button class="btn btn-success"><a href="{{link}}{{text}}">{{text}}</a></button>{{/if}}
+    <br>
+    {{#if isOutline}} <button class="btn btn-outline-success"><a href="{{link}} {{text}}">{{text}}</a></button>{{/if}}
+    {{/each}}
+    {{/with}}
+    <hr>
+    <br>
+    {{#with goodsOtherBlock}}
+    <h2 class="text-center">{{title}}</h2>
+    <div class="row g-2">
+        {{#each cards}}
+
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{image}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    {{#if isHot}} <div class="badge rounded-pill text-bg-warning">Hot</div>{{/if}}
+                    {{#if idNew}} <div class="badge rounded-pill text-bg-primary">New</div>{{/if}}
+                    <p>{{description}}</p>
+                </div>
+            </div>
+
+        </div>
+
+        {{/each}}
+    </div>
+    {{/with}}
+    <hr>
+    <br>
+    <div class="card">
+        <div class="card-body text-bg-dark">
+            {{#with subscribe}}
+            <h2>{{header}}</h2>
+            <p>{{description}}</p>
+            {{#each buttons}}
+            <a class="btn btn-primary text-bg-light nav-link" href="{{link}}{{text}}">{{text}}</a>
+            <br>
+            <br>
+            {{/each}}
+            {{/with}}
+        </div>
+    </div>
+
+
+    <hr>
+    <br>
+    <div class="row g-5">
+        {{#each footer}}
+        <div class="nav col-2">
+            <div>
+                {{#each this}}
+                <div>
+                    <a class="nav-link {{#if @last}} disabled {{/if}}" href="{{this.link}}">{{this.text}}</a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</main>
