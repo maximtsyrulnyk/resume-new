@@ -1,0 +1,61 @@
+{{#with purchase}}
+<ul class="nav nav-tabs mb-4">
+    {{#each tabs}}
+    <ul class="nav nav-tabs">
+        <li class="nav-link {{#if @first}} active {{/if}}">{{this}}</li>
+    </ul>
+    {{/each}}
+</ul>
+
+{{#with actionBlock}}
+<div class="row">
+    <div class="col-3">
+        <div class="nav nav-tabs">
+            <div class="nav-item">
+                <a href="#" class="nav-link"><input class="form-control" placeholder="{{input.placeholder}}"
+                        type="text"></a>
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-5">
+        {{#each buttons}}
+        <a class="btn {{#if isSuccess}}btn-success{{/if}} {{#if isOutline}}btn-outline-success{{/if}} {{#if isDanger}}btn-outline-danger {{/if}}"
+            href="{{link}}">{{text}}</a>
+        {{/each}}
+    </div>
+</div>
+{{/with}}
+<hr>
+{{#each itemList}}
+<div class="row">
+    <div class="col-4">
+        {{number}}
+        <br>
+        <b>{{status}}</b>
+    </div>
+    <div class="col-2">
+        {{#with amount}}
+        {{title}}
+        <br>
+        <b>{{value}}</b>
+        {{/with}}
+    </div>
+    <div class="col-4">
+        <div class="row">
+            {{#each images}}
+            <img class="col-4" src="{{this}}">
+            {{/each}}
+        </div>
+
+    </div>
+    <div class="col-2">
+        {{#with button}} <a class="btn btn-primary" href="{{link}}">{{text}}</a>{{/with}}
+    </div>
+    <hr>
+</div>
+{{/each}}
+<hr>
+{{/with}}
