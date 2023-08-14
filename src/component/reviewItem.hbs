@@ -4,37 +4,44 @@
         <div class="card">
             <div class="card-body">
                 {{#with title}}
-                <b>{{userName}}</b>
+                <p><b>{{userName}}</b></p>
                 <br>
-                {{caption}}
+                <p><b>{{caption}}</b></p>
                 <br>
-                {{date}}
+                <p>{{date}}</p>
                 {{/with}}
             </div>
 
         </div>
+
         <div class="card">
             <div class="card-body">
                 {{#with reviewBody}}
                 {{#with seller}}
-                <b>{{title}}</b>
-                <text>{{value}}</text>
+                <p><b>{{title}}</b>
+                    <text>{{value}}</text>
+                </p>
                 {{/with}}
                 <br>
                 {{#with rating}}
-                <b>{{title}}</b>
-                <text>{{value}}</text>
+                <p><b>{{title}}</b>
+                    <text>{{value}}</text>
+                </p>
                 {{/with}}
                 <br>
-                <p>{{text}}{{value}}</p>
+                <p><b>{{title}}</b>
+                    <text>{{value}}</text>
+                </p>
                 {{#with advantages}}
-                <b>{{title}}</b>
-                <text>{{text}}</text>
+                <p><b>{{title}}</b>
+                    <text>{{text}}</text>
+                </p>
                 {{/with}}
                 <br>
                 {{#with disadvantages}}
-                <b>{{title}}</b>
-                <text>{{text}}</text>
+                <p><b>{{title}}</b>
+                    <text>{{text}}</text>
+                </p>
                 {{/with}}
                 <div class="row">
                     {{#each images}}
@@ -48,7 +55,7 @@
                     <div class="card-body">
                         <p><b>{{userName}}</b></p>
                         <p>{{date}}</p>
-                        <p>{{text}}</p>
+                        <text>{{text}}</text>
                     </div>
                 </div>
                 {{/each}}
