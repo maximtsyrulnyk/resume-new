@@ -1,0 +1,219 @@
+{{!--
+Це код container файлу для сторінки shopcatalog,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/shopcatalog"
+--}}
+
+<main>
+    {{!-- Меню навігації --}}
+    <header class="mb-5">
+        {{#with navigation}}
+        <div class="card p-3">
+            <div class="card-body">
+                <nav class="nav row">
+                    <div class=""></div>
+                    <ul class="col-4">
+                        <li class="d-flex">
+                            {{#each links}}
+                            <a class="nav-link " href="{{href}}{{text}}">{{text}}</a>
+                            {{/each}}
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        {{/with}}
+    </header>
+    <br>
+
+    <div class="row">
+        <nav>
+            <ol class="breadcrumb">
+                {{#each breadcrumb}}
+                <li class="breadcrumb-item"><a href="{url}}">{{name}}</a></li>
+                {{#if @last}}<li class="breadcrumb-item active" aria-current="page">{{name}}</li>{{/if}}
+                {{/each}}
+            </ol>
+        </nav>
+    </div>
+
+
+    <h1>{{header}}</h1>
+    <div class="row">
+        {{#each sortBlock}}
+
+        <div class="col-3">
+            <select class="form-select">
+                <option selected>{{placeholder}}</option>
+                {{#each options}}
+                <option value="">{{value}}{{text}}</option>
+
+                {{/each}}
+            </select>
+        </div>
+
+
+        {{/each}}
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="row">
+        <div class="card col-4">
+            <div class="card-body">
+                {{#with filterBlock}}
+                {{#with sellers}}
+                {{title}}
+                {{#each list}}
+                <div class="form-check">
+                    <label class="form-check-label">{{value}}</label>
+                    <input type="checkbox" class="form-check-input">
+                </div>
+                {{/each}}
+                {{/with}}
+                <hr>
+                {{#with brands}}
+                {{title}}
+                {{#with input}}
+                <p><input type="placeholder" name="{{placeholder}}" id=""></p>
+                {{/with}}
+                {{#each options}}
+                <div class="form-check">
+                    <label class="form-check-label">{{value}}</label>
+                    <input type="checkbox" class="form-check-input">
+                </div>
+                {{/each}}
+                {{/with}}
+                <hr>
+                {{#with price}}
+                {{title}}
+                {{#with range}}
+                <p><input type="placeholder" name="{{from}}" id=""></p>
+                <p><input type="placeholder" name="{{to}}" id=""></p>
+                {{/with}}
+                <div class="col-1">
+                    {{#with button}}
+                    <a class="btn btn-outline-dark" href="{{link}}">{{text}}</a>
+                    {{/with}}
+                </div>
+
+                {{/with}}
+                <hr>
+                {{#each filterList}}
+                {{title}}
+                {{#each options}}
+                <div class="form-check">
+                    <label class="form-check-label">{{value}}</label>
+                    <input type="checkbox" class="form-check-input">
+
+                </div>
+
+                {{/each}}
+                <hr>
+                {{/each}}
+                {{/with}}
+            </div>
+
+
+        </div>
+
+
+        <div class="card col-4">
+            <div class="card-body">
+                {{#each goodsList}}
+                <img src="{{img}}" alt="">
+                <div class="row">
+                    {{#if isHot}}
+                    <div class="col-2 badge rounded-pill text-bg-warning">
+                        Hot
+                    </div>
+                    {{/if}}
+                    {{#if isNew}}
+                    <div class=" col-2 badge rounded-pill text-bg-info">
+                        New
+                    </div>
+                    {{/if}}
+                </div>
+
+                {{#if isFast}}
+                <div class="col-5 btn btn-success">
+                    Швидка доставка
+                </div>
+                {{/if}}
+                <p></p>
+                {{#if isFree}}
+                <div class="col-6 btn btn-secondary">
+                    Безкоштовна доставка
+                </div>
+                {{/if}}
+                <p></p>
+                {{name}}
+                <br>
+                {{#with review}}
+                {{amount}}
+                {{text}}
+                {{/with}}
+                <br>
+                {{price}}
+                <br>
+                {{delivery}}
+                {{#each buttons}}
+                {{#if isPrimary}}
+                <a class="btn btn-primary" href="{{link}}">{{text}}</a>
+                {{/if}}
+                {{#if isSecondary}}
+                <a class="btn btn-secondary" href="{{link}}">{{text}}</a>
+                {{/if}}
+                <br>
+                {{/each}}
+                {{#each characteristics}}
+                {{title}}
+                {{value}}
+                <br>
+                {{/each}}
+                {{/each}}
+            </div>
+        </div>
+
+        {{>catalogItem}}
+
+
+    </div>
+
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="card text-bg-success text-center">
+        <div class="card-body">
+            {{#with service}}
+            <h2 class="card-title">{{title}}</h2>
+            <div>{{description}}</div>
+            {{#each buttons}}
+            <a rel="{type}}" class="btn btn-primary me-1 mt-4" href="{link}}">{{text}}</a>
+            {{/each}}
+            </a>
+
+            {{/with}}
+        </div>
+
+    </div>
+    <hr>
+    <br>
+
+
+    <div class="row g-5">
+        {{#each footer}}
+        <div class="nav col-2">
+            <div>
+                {{#each this}}
+                <div>
+                    <a class="nav-link {{#if @last}} disabled {{/if}}" href="{{this.link}}">{{this.text}}</a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</main>
