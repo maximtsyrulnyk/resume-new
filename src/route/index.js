@@ -606,5 +606,11 @@ router.get('/list', function (req, res) {
     isConfirm: { age: { value: 32 } },
   })
 })
+// ================================================================
+//            ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/index8', function (req, res) {
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('index8')
+})
 // Підключаємо роутер до бек-енду
 module.exports = router
