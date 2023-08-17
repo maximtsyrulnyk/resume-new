@@ -1,0 +1,106 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+  <main>
+    <section>
+      {{> title data='Car' big=true}}
+
+      <hr>
+      <h1>{{make}}</h1>
+      <hr>
+      <br>
+      <p><mark>{{make}}</mark></p>
+      <p><mark>{{model}}</mark></p>
+      <p><mark>{{year}}</mark></p>
+      <p><mark>{{color}}</mark></p>
+      {{!--
+      <h2>History</h2>
+      {{#with history}}
+      <p>Year: {{year}}</p>
+      <p>Color: {{color}}</p>
+
+      {{/with}}
+
+      {{#each types}}
+      {{this}}<p><mark>Types: {{types}}</mark></p>
+      {{/each}}
+      {{#each syntax}}
+      <p><mark>Syntax: {{syntax}}</mark></p>
+      {{/each}}
+
+      <h2>Data types</h2>
+      {{#each types}}
+      <ul>
+        <li>{{this}}</li>
+      </ul>
+      {{/each}}--}}
+      <h2>Material</h2>
+      {{#each material}}
+      <ul>
+        <li> {{this}}</li>
+      </ul>
+      {{/each}}
+      <h2>wheels</h2>
+      {{#each wheels}}<ul>
+        <li> {{this}}</li>
+      </ul>
+      {{/each}}
+      <h2>headlights</h2>
+      {{#each headlights}}<ul>
+        <li>
+          {{this}} </li>
+      </ul> {{/each}}
+      <h2>sunroof</h2>
+      {{#each sunroof}}<ul>
+        <li> {{this}}</li>
+      </ul>{{/each}}
+      <h2>safety</h2>
+      {{#each airbags}}<ul>
+        <li> {{this}}</li>
+      </ul>{{/each}}
+
+
+      {{#each assistance}}
+      <ul>
+        <li>{{this}}</li>
+      </ul>
+      {{/each}}
+      <h2>Engine</h2>
+      {{#each engine}}
+      <ul>
+        <li>{{this}}</li>
+      </ul>
+      {{/each}}
+      <h2>fuel_economy</h2>
+      {{#each fuel_economy}}<ul>
+        <li>{{this}}</li>
+      </ul> {{/each}}
+      <h2>Price</h2>
+      {{#each price}}
+      <ul>
+        <li>{{this}}</li>
+      </ul>
+      {{/each}}
+      {{#each name}} <ul>
+        <li>{{this}}</li>
+      </ul>{{/each}}
+      <p><mark>Total: {{total}}</mark></p>
+
+      {{#with audio}}
+      <p>system - {{system}}</p>
+      <p>speakers - {{speakers}}</p>
+      <p>subwoofer - {{#if subwoofer}} yes {{/if}}</p>
+      <p>bluetooth - {{#if bluetooth}} yes {{/if}}</p>
+      <p>USB - {{#if USB}} yes {{/if}}</p>
+      {{/with}}
+    </section>
+  </main>
+
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML --}}
