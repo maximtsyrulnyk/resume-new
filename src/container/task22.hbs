@@ -1,0 +1,87 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+<div>
+    <main>
+        {{#with section}}
+        <section>
+            <!--{{> title data='task22' big=true}}
+            <hr>-->
+            <h1 class="text-center">H1 Heading</h1>
+            <h6 class="text-center">PARAGRAPH</h6>
+            <section class="card">
+                <div class="card-body">
+                    <h2 class="display-6 text-end">{{about_us.title_list.main}}</h2>
+                    <p class="text-end"> {{about_us.title_list.sub}}</p>
+                    <button class="btn btn-outline-info">{{about_us.button.text}}</button>
+                </div>
+            </section>
+            <p></p>
+
+            <section class="card">
+
+                <div>
+                    <h2 class="text">Display 5 Advantage</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="text">Display 4 efficiency</h2>
+                            <p>H6 Heading</p>
+                            <p>Paragraph</p>
+                            <button class="btn btn-outline-warning">Warning</button>
+
+                        </div>
+                    </div>
+                    <p></p>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="text-center">Display 4 innovation</h2>
+                            <p class="text-center">H6 Heading</p>
+                            <p class="text-center">Paragraph</p>
+                            <button class="btn btn-outline-warning">{{advantage.innovation.button}}</button>
+
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="text-end">Display 4 collaboration
+                            </h2>
+                            <p class="text-end">H6 Heading</p>
+                            <p class="text-end">Paragraph
+                            </p>
+
+                            <button class="btn btn-outline-warning">{{advantage.collaboration.button}}</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <p></p>
+            <div class="card">
+
+                <div class="card-body">
+                    <h2 class="text">Display 5 agreement</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="text">H5 Heading</h5>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p></p>
+                                    <p>Paragraph</p>
+                                    <button class="btn btn-success">Success</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+
+
+        </section>
+        {{/with}}
+    </main>
+</div>
