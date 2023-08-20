@@ -1,3 +1,62 @@
+:root {
+  background: purple;
+}
+
 html {
-  max-width: 1000px;
+  max-width: 720px;
+  background: blue;
+}
+body {
+  background: #fff;
+}
+
+* {
+  color: #666;
+}
+
+h1 {
+  color: green;
+}
+
+.box {
+  background: #cfcfcf;
+}
+h1.button {
+  background: red;
+}
+
+h1,
+h2#user,
+button.button#button {
+  color: green;
+}
+
+#user,
+.user {
+  color: blue;
+}
+
+#box > p {
+  color: paleturquoise;
+}
+
+footer > .user {
+  color: palevioletred;
+}
+
+footer > h1 {
+  color: palevioletred;
+}
+
+footer em.child,
+footer div.child {
+  color: rgb(0, 247, 111);
+}
+
+.p-top {
+  background: black;
+}
+
+h1 ~ * > p {
+  background: black;
 }

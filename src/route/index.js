@@ -33,7 +33,7 @@ var footer = {
 // router.get Створює нам один ентпоїнт
 
 //           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
+router.get('/index', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
@@ -604,6 +604,12 @@ router.get('/list', function (req, res) {
     },
     role: { text: 'Admin' },
     isConfirm: { age: { value: 32 } },
+  })
+})
+router.get('/selector1', function (req, res) {
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('selector1', {
+    // ↙ сюди вводимо JSON дані
   })
 })
 // Підключаємо роутер до бек-енду
