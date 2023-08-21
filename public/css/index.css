@@ -1,4 +1,4 @@
-:root {
+/*:root {
   background: purple;
 }
 
@@ -59,4 +59,32 @@ footer div.child {
 
 h1 ~ * > p {
   background: black;
+}*/
+
+.card-dark {
+  background: #ededed;
+}
+.item {
+  color: green;
+}
+
+.item:last-of-type {
+  color: blue;
+}
+
+.item:only-of-type {
+  color: red;
+}
+
+.item:nth-of-type(3n) {
+  color: rgb(0, 255, 174);
+}
+
+.item:not(p) {
+  color: blueviolet;
+}
+
+p:empty {
+  height: 10px;
+  background: red;
 }
