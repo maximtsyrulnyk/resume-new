@@ -41,6 +41,7 @@
 
 <body> Адже нащ layout/default.hbs вже має структуру HTML
     --}}
+    {{!--
     <div class="card p-5 m-5 card-dark">
         <div class="item">First</div>
         <div class="item">First</div>
@@ -55,4 +56,21 @@
         <article class="item">Last</article>
         <article class="item">Last</article>
         <article class="item">Last</article>
+    </div>
+    --}}
+    <div class="card p-5 m-5 card-dark">
+        <input class="input-dark p-5" placeholder="This is text" required>
+        {{!--<input class="input-dark" type="number">--}}
+    </div>
+    <div class="card p-5 m-5 card-dark img">
+        <img alt="image small card 100px" class="small-img" src="https://picsum.photos/200/300" height="100px" alt="">
+
+        <a href="https://picsum.photos/200/300" rel="external">Link</a>
+        <br>
+        <button class="before-after btn">Click me</button>
+        <br>
+        <a class="before-after small btn btn-secondary" href="https://picsum.photos/200/300">Click me</a>
+    </div>
+    <div class="card p-5 m-5 card-dark img">
+        <p class="before-after">This is text about<br> info big test info</p>
     </div>

@@ -61,9 +61,6 @@ h1 ~ * > p {
   background: black;
 }*/
 
-.card-dark {
-  background: #ededed;
-}
 .item {
   color: green;
 }
@@ -86,5 +83,55 @@ h1 ~ * > p {
 
 p:empty {
   height: 10px;
+  background: red;
+}
+.input-dark {
+  background: #585858;
+}
+
+.input-dark[required] {
+  background: #ff2a2a;
+}
+.input-dark[type='number'] {
+  background: #16c100;
+}
+
+.small-img[alt~='small'] {
+  height: 500px;
+}
+
+a[rel~='external'] {
+  color: green;
+}
+
+button[class|='btn'] {
+  background: rgb(212, 212, 212);
+}
+
+a[class*='btn'] {
+  background: rgb(243, 35, 35);
+}
+
+a[class*='big'] {
+  background: rgb(6, 3, 196);
+}
+
+.btn::first-letter {
+  color: rgb(48, 33, 255);
+}
+
+.big-text::first-line {
+  color: red;
+}
+
+.input-dark::placeholder {
+  color: green;
+  background: blue;
+}
+
+.before-after::before,
+.before-after::after {
+  content: '$$$';
+  color: green;
   background: red;
 }
