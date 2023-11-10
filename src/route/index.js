@@ -2,139 +2,186 @@
 const express = require('express')
 // Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
 const router = express.Router()
-
 // ================================================================
-
 var header = {
-  name: { firstname: 'Ivan', lastname: 'Ivanov' },
+  name: {
+    firstname: 'Taras',
+    lastname: 'Bulba',
+  },
   position: 'Junior Fullstack JS Developer',
-  salary: '600 $ в місяць',
-  address: 'Ukraine, Kyiv',
+  salary: '600$ в місяц',
+  address: 'місто Київ, Україна',
 }
-
 var footer = {
   social: {
     email: {
-      text: 'ivanov@mail.com',
-      href: 'mailto:ivanov@mail.com',
+      text: 'dmytro@mail.com',
+      href: 'mailto:dmytro@mail.com',
     },
     phone: {
       text: '+380670000123',
-      href: 'tel: +380670000123',
+      href: 'tel:+380670000123',
     },
-    linkedin: {
-      href: 'https://www.linkedin.com/in/dmytro-test',
+    LinkedIn: {
       text: 'LinkedIn',
+      herf: 'https://www.linkedin.com/in/dmytro-test',
     },
   },
 }
 // ================================================================
-
-// router.get Створює нам один ентпоїнт
-
-//           ↙ тут вводимо шлях (PATH) до сторінки
 router.get('/', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
-  //                  ↑↑ сюди вводимо JSON дані
+  res.render('index', {
+    layout: 'index',
+  })
 })
 
 // ================================================================
-
-//              ↙ тут вводимо шлях (PATH) до сторінки
 router.get('/summary', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('summary', {
-    // ↙ сюди вводимо JSON дані
-
-    page: { title: 'Resume | Summary' },
-
+    page: {
+      title: 'Resume | Summary',
+    },
     header,
-
     main: {
       summary: {
-        title: 'Summury',
-        text: `Open-minded for new technologies, with 1 years of experience in development. Whenever I start to
-      work on a new project I learn the domain and try to understand the idea of the project. Good team 
-      player, every colleague is a friend to me.`,
+        title: 'Summary',
+        text: `Open-minded for new technologies, with 1 years of experience in development. Whenever I start to work on a new project I learn the domain and try to understand the idea of the project. Good team player, every colleague is a friend to me.`,
       },
       experience: {
         title: 'Other experience',
-        text: `Pet project for parsing sport betting data from different platforms ( odds ) and sport statistics (
-        tournament position, goals etc), analyzing by simple mathematics models and preparing probability
-        for such events like: money line - first win / draw / second win, totals etc.`,
+        text: `Pet project for parsing sport betting data from different platforms ( odds ) and sport statistics ( tournament position, goals etc), analyzing by simple mathematics models and preparing probability for such events like: money line - first win / draw / second win, totals etc.`,
       },
     },
-
     footer,
   })
 })
-
 // ================================================================
-
-//              ↙ тут вводимо шлях (PATH) до сторінки
 router.get('/skills', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('skills', {
-    // ↙ сюди вводимо JSON дані
-
-    page: { title: 'Resume | Skills' },
-
+    page: {
+      title: 'Resume | Skills',
+    },
     header,
-
     main: {
       skills: [
-        { name: 'HTML', point: 10, isTop: true },
-        { name: 'Handlebars', point: 10, isTop: true },
-        { name: 'VS Code & NPM', point: 9, isTop: false },
-        { name: 'Git & Terminal', point: 7 },
-        { name: 'React.js', point: 0 },
-        { name: 'PHP', point: null },
+        {
+          name: 'HTML',
+          point: 10,
+          isTop: true,
+        },
+        {
+          name: 'Handlebars',
+          point: 10,
+          isTop: true,
+        },
+        {
+          name: 'VS Code',
+          point: 8,
+          isTop: false,
+        },
+        {
+          name: 'Git',
+          point: 7,
+          isTop: false,
+        },
+        {
+          name: 'Terminal',
+          point: 7,
+          isTop: false,
+        },
+        {
+          name: 'NPM',
+          point: 6,
+        },
+        {
+          name: 'React.js',
+          point: 0,
+        },
+        {
+          name: 'PHP',
+          point: null,
+        },
+      ],
+      hobbies: [
+        {
+          name: 'Travel',
+          isMain: true,
+        },
+        {
+          name: 'Sport',
+          isMain: false,
+        },
+        {
+          name: 'Music',
+          isMain: true,
+        },
       ],
     },
-
     footer,
   })
 })
+// ================================================================
 router.get('/education', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('education', {
-    // ↙ сюди вводимо JSON дані
-
-    page: { title: 'Resume | Education' },
-
-    header,
-
-    main: {
-      educations: ['Дет сад', 'Тех ліцей', 'НПУ'],
+    page: {
+      title: 'Resume | Education',
     },
-
+    header,
+    main: {
+      educations: [
+        {
+          name: 'Bogomolets National Medical University',
+          isEnd: true,
+        },
+        {
+          name: 'Shupyk National Healthcare University of Ukraine',
+          isEnd: true,
+        },
+        {
+          name: 'Ukrainian Military Medical Academy',
+          isEnd: true,
+        },
+        {
+          name: 'IT-BRAINS, Full stack developer course',
+          isEnd: false,
+        },
+      ],
+      certificates: [
+        {
+          name: 'Диплом магістра',
+          id: '123',
+        },
+        {
+          name: 'Сертифікат лікаря з медицини невідкладних станів',
+          id: '456',
+        },
+        {
+          name: 'Військовий фах 91000',
+          id: '789',
+        },
+      ],
+    },
     footer,
   })
 })
+// ================================================================
 router.get('/work', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('work', {
-    // ↙ сюди вводимо JSON дані
-
     layout: 'big',
-
-    page: { title: 'Resume | Work' },
-
+    page: {
+      title: 'Resume | Work',
+    },
     header,
-
     main: {
       works: [
         {
-          position: 'Junior Fullstack Developer',
+          position: 'Junior fullstack developer',
           company: {
             name: 'IT Brains',
             url: 'https://it-brains.com.ua/',
           },
           duration: {
-            from: '11.02.2023',
+            from: '10.10.2023',
             to: null,
           },
           projectAmount: 3,
@@ -142,39 +189,49 @@ router.get('/work', function (req, res) {
           projects: [
             {
               name: 'Resume',
-              url: 'https://resume.com.ua/',
-              about:
-                'Airbnb competitor. High-load application for searching apartments',
+              url: 'https://it-brains.com.ua/',
+              about: 'My hurd and soft skills',
               stacks: [
-                { name: 'React.js' },
-                { name: 'HTML / CSS' },
-                { name: 'Nodejs' },
+                {
+                  name1: 'React.js',
+                },
+                {
+                  name2: 'HTML / CSS',
+                },
+                {
+                  name3: 'Node.js',
+                },
               ],
               awards: [
                 {
-                  name: 'Background verification - is a feature that provides users to prove that they are real persons.',
+                  name1: 'Орден',
                 },
                 {
-                  name: 'Preparing SEO optimized pages. The automated process of getting data for the app frfom documents.',
+                  name2: 'Медалька',
                 },
               ],
-              stackAmount: 3,
-              awardAmount: 2,
+              stackAmoGnt: '6',
+              awardAmoGnt: '8',
             },
           ],
         },
       ],
     },
-
     footer,
   })
 })
+// ================================================================
+
 router.get('/person', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('person', {
+    layout: 'basic',
+    page: {
+      title: 'Resume | Person',
+    },
+
     person: {
       name: 'Emma Johnson',
-      age: 32,
+      age: '32',
       gender: 'Female',
       address: {
         street: '123 Main St',
@@ -189,7 +246,7 @@ router.get('/person', function (req, res) {
           major: 'Computer Science',
           university:
             'Massachusetts Institute of Technology',
-          graduationYear: 2012,
+          graduationYear: '2012',
         },
       ],
       workExperience: [
@@ -199,10 +256,16 @@ router.get('/person', function (req, res) {
           startDate: '2012-06-01',
           endDate: '2016-12-31',
           responsibilities: [
-            'Developed new features for Google Maps',
-            'Worked on improving search algorithms',
+            {
+              name1:
+                'Developed new features for Google Maps',
+            },
+            {
+              name2:
+                'Worked on improving search algorithms',
+            },
           ],
-          year_founded: 1990,
+          year_founded: '1990',
           industry: 'Technology',
           employees: [
             {
@@ -265,13 +328,111 @@ router.get('/person', function (req, res) {
     },
   })
 })
+// ================================================================
+router.get('/bio', function (req, res) {
+  res.render('bio', {
+    layout: 'basic',
+    name: 'Albert Einstein',
+    birthdate: 'March 14, 1879',
+    birthplace:
+      'Ulm, Kingdom of Württemberg, German Empire',
+    deathdate: 'April 18, 1955',
+    deathplace: 'Princeton, New Jersey, United States',
+    nationality: 'Swiss, German, American',
+    occupation: 'Theoretical Physicist',
+    known_for: [
+      'Theory of Relativity',
+      'E=mc²',
+      'Photoelectric Effect',
+      'Brownian Motion',
+    ],
+    education: [
+      {
+        degree: 'Doctor of Philosophy',
+        field: 'Physics',
+        institution: 'University of Zurich',
+        year: 1905,
+      },
+    ],
+    notable_publications: [
+      {
+        title: 'On the Electrodynamics of Moving Bodies',
+        year: 1905,
+        publisher: 'Annalen der Physik',
+      },
+      {
+        title:
+          'Does the Inertia of a Body Depend Upon Its Energy Content?',
+        year: 1905,
+        publisher: 'Annalen der Physik',
+      },
+    ],
+    partners: [
+      {
+        name: 'Mileva Marić',
+        relationship: 'First wife',
+        years: '1903-1919',
+      },
+      {
+        name: 'Elsa Einstein',
+        relationship:
+          "Second wife, also Einstein's first cousin",
+        years: '1919-1936',
+      },
+    ],
+    awards: [
+      {
+        title: 'Nobel Prize in Physics',
+        year: 1921,
+        description:
+          'Awarded for his explanation of the photoelectric effect',
+      },
+    ],
+    influences: [
+      'Isaac Newton',
+      'James Clerk Maxwell',
+      'Hermann Minkowski',
+    ],
+    influenced: [
+      'Niels Bohr',
+      'Erwin Schrödinger',
+      'Werner Heisenberg',
+      'Richard Feynman',
+    ],
+    quotes: [
+      'Imagination is more important than knowledge.',
+      'I have no special talent. I am only passionately curious.',
+      'The important thing is not to stop questioning.',
+      'The most beautiful thing we can experience is the mysterious. It is the source of all true art and all science.',
+    ],
+    major_discoveries: [
+      {
+        title: 'Photoelectric Effect',
+        year: 1905,
+        description:
+          'Einstein explained the photoelectric effect, where electrons are emitted from a metal surface when it is illuminated by light.',
+      },
+    ],
+    contributions: {
+      title: 'Inventions',
+      description:
+        'Leonardo designed and invented a wide variety of machines and devices, including a helicopter, a diving suit, and a self-propelled cart. Many of his inventions were centuries ahead of their time.',
+      year: 'Late 15th to early 16th century',
+      field: 'Invention',
+    },
+  })
+})
+// ================================================================
 router.get('/program', function (req, res) {
   res.render('program', {
-    layout: 'program',
+    layout: 'basic',
     program: {
       excursion: {
         name: 'Cultural Tour',
-        location: { city: 'Paris', country: 'France' },
+        location: {
+          city: 'Paris',
+          country: 'France',
+        },
         date: '2023-06-15',
         program: [
           {
@@ -315,7 +476,7 @@ router.get('/program', function (req, res) {
             duration: 2,
             details: {
               venue: {
-                name: 'Moulin Range',
+                name: 'Moulin Rouge',
                 location: {
                   address: '82 Boulevard de Clichy',
                   city: 'Paris',
@@ -344,10 +505,10 @@ router.get('/program', function (req, res) {
     },
   })
 })
-
+// ================================================================
 router.get('/web', function (req, res) {
-  //             ↙ cюди вводимо назву файлу з сontainer
   res.render('web', {
+    layout: 'basic',
     web: {
       languages: [
         {
@@ -471,111 +632,175 @@ router.get('/web', function (req, res) {
     },
   })
 })
-
+// ================================================================
+router.get('/bootstrap', function (req, res) {
+  res.render('bootstrap', {
+    layout: 'bootstrap',
+  })
+})
+// ================================================================
 router.get('/js', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-
-router.get('/car', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('car', {
+  res.render('js', {
     layout: 'basic',
-    make: 'Toyota',
-    model: 'Camry',
-    year: 2022,
-    color: 'silver',
+    name: 'JavaScript',
+    description:
+      'JavaScript is a popular high-level, dynamic, and interpreted programming language.',
+    history: {
+      year: 1995,
+      founder: 'Brendan Eich',
+    },
+    types: [
+      'Number',
+      'String',
+      'Boolean',
+      'Null',
+      'Undefined',
+      'Symbol',
+      'Object',
+    ],
+    syntax: {
+      variables: ['var', 'let', 'const'],
+      functions: ['function'],
+      conditionals: ['if', 'else', 'switch'],
+      loops: ['for', 'while', 'do-while'],
+      classes: ['class'],
+    },
+    features: [
+      'First-class functions',
+      'Closures',
+      'Dynamic typing',
+      'Prototype-based inheritance',
+      'Asynchronous programming with Promises and async/await',
+      'Modules with import/export statements',
+    ],
+    libraries: [
+      'jQuery',
+      'React',
+      'Angular',
+      'Vue',
+      'Node.js',
+      'Express.js',
+      'Lodash',
+      'Moment.js',
+    ],
+    tools: [
+      'Babel',
+      'Webpack',
+      'ESLint',
+      'Jest',
+      'Mocha',
+      'Chai',
+      'Selenium',
+      'Cypress',
+    ],
+    community: [
+      {
+        name: 'Stack Overflow',
+        type: 'forum',
+      },
+      {
+        name: 'JavaScript Weekly',
+        type: 'newsletter',
+      },
+      {
+        name: 'The Changelog',
+        type: 'podcast',
+      },
+      {
+        name: 'CSS-Tricks',
+        type: 'blog',
+      },
+    ],
+  })
+  //                  ↑↑ сюди вводимо JSON дані
+})
+// ================================================================
+router.get('/mac', function (req, res) {
+  res.render('mac', {
+    layout: 'basic',
+    name: 'Apple MacBook Pro',
+    description: 'The ultimate notebook for power users',
+    price: 1999.99,
+    category: 'Computers & Tablets',
     features: {
-      interior: {
-        seats: {
-          material: 'leather',
-          color: 'black',
-          heated: true,
-          ventilated: true,
-        },
-        dashboard: {
-          material: 'plastic',
-          color: 'black',
-          display: {
-            type: 'LCD',
-            size: 10.1,
-            resolution: '1280x720',
-            touchscreen: true,
-          },
-        },
-        audio: {
-          system: 'JBL',
-          speakers: 8,
-          subwoofer: true,
-          bluetooth: true,
-          USB: true,
-        },
+      processor: {
+        brand: 'Intel',
+        model: 'Core i9',
+        speed: '2.3 GHz',
+        cores: 8,
+        cache: '16 MB',
       },
-      exterior: {
-        wheels: {
-          size: 18,
-          type: 'alloy',
-          color: 'silver',
-        },
-        headlights: {
-          type: 'LED',
-          brightness: 'high',
-          automatic: true,
-        },
-        sunroof: {
-          type: 'panoramic',
-          size: 'large',
-          automatic: true,
-        },
+      memory: {
+        type: 'DDR4',
+        size: '32 GB',
+        speed: '2666 MHz',
       },
-      safety: {
-        airbags: {
-          front: 2,
-          side: 2,
-          knee: 2,
-          rear: 2,
-        },
-        assistance: {
-          blind_spot_monitoring: true,
-          rear_cross_traffic_alert: true,
-          lane_departure_warning: true,
-          adaptive_cruise_control: true,
-          collision_warning: true,
-        },
+      storage: {
+        type: 'SSD',
+        size: '1 TB',
       },
+      display: {
+        size: '16 inches',
+        resolution: '3072x1920',
+        technology: 'Retina',
+        color_space: 'P3',
+        brightness: '500 nits',
+        refresh_rate: '60 Hz',
+      },
+      graphics: {
+        brand: 'AMD',
+        model: 'Radeon Pro 5500M',
+        memory: '4 GB GDDR6',
+      },
+      ports: [
+        {
+          type: 'Thunderbolt 3',
+          count: 4,
+          features: [
+            'Charging',
+            'DisplayPort',
+            'Thunderbolt (up to 40 Gbps)',
+            'USB 3.1 Gen 2 (up to 10 Gbps)',
+          ],
+        },
+        {
+          type: 'HDMI',
+          count: 1,
+        },
+      ],
+      battery: {
+        type: 'Lithium Polymer',
+        capacity: '100 Wh',
+        life: 'Up to 11 hours',
+      },
+      weight: '4.3 pounds',
+      dimensions: {
+        height: '0.64 inch',
+        width: '14.09 inches',
+        depth: '9.68 inches',
+      },
+      operating_system: 'macOS',
+      accessories: [
+        {
+          name: 'Apple Magic Keyboard',
+          price: 99.99,
+        },
+        {
+          name: 'Apple Magic Mouse 2',
+          price: 79.99,
+        },
+        {
+          name: 'USB-C to USB Adapter',
+          price: 19.99,
+        },
+      ],
     },
-    engine: {
-      type: 'gasoline',
-      displacement: 2.5,
-      horsepower: 206,
-      torque: 186,
-      transmission: {
-        type: 'automatic',
-        gears: 8,
-      },
-    },
-    fuel_economy: {
-      city: 28,
-      highway: 39,
-      combined: 32,
-    },
-    price: {
-      base: 25900,
-      destination: 995,
-      options: {
-        navigation: 1200,
-        moonroof: 800,
-        premium_paint: 595,
-      },
-      total: 28990,
-    },
-
+  })
+})
+// ================================================================
 router.get('/facebook', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('facebook', {
+    layout: 'basic',
     name: 'Facebook',
     users: [
       {
@@ -724,171 +949,9 @@ router.get('/facebook', function (req, res) {
       },
     ],
   })
-  //                  ↑↑ сюди вводимо JSON дані
 })
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('js', {
-    layout: 'basic',
-    name: 'JavaScript',
-    description:
-      'JavaScript is a popular high-level, dynamic, and interpreted programming language.',
-    history: {
-      year: 1995,
-      founder: 'Brendan Eich',
-    },
-    types: [
-      'Number',
-      'String',
-      'Boolean',
-      'Null',
-      'Undefined',
-      'Symbol',
-      'Object',
-    ],
-    syntax: {
-      variables: ['var', 'let', 'const'],
-      functions: ['function'],
-      conditionals: ['if', 'else', 'switch'],
-      loops: ['for', 'while', 'do-while'],
-      classes: ['class'],
-    },
-    features: [
-      'First-class functions',
-      'Closures',
-      'Dynamic typing',
-      'Prototype-based inheritance',
-      'Asynchronous programming with Promises and async/await',
-      'Modules with import/export statements',
-    ],
-    libraries: [
-      'jQuery',
-      'React',
-      'Angular',
-      'Vue',
-      'Node.js',
-      'Express.js',
-      'Lodash',
-      'Moment.js',
-    ],
-    tools: [
-      'Babel',
-      'Webpack',
-      'ESLint',
-      'Jest',
-      'Mocha',
-      'Chai',
-      'Selenium',
-      'Cypress',
-    ],
-    community: [
-      {
-        name: 'Stack Overflow',
-        type: 'forum',
-      },
-      {
-        name: 'JavaScript Weekly',
-        type: 'newsletter',
-      },
-      {
-        name: 'The Changelog',
-        type: 'podcast',
-      },
-      {
-        name: 'CSS-Tricks',
-        type: 'blog',
-      },
-    ],
-  })
-  //                  ↑↑ сюди вводимо JSON дані
-})
-
-router.get('/mac', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('mac', {
-    name: 'Apple MacBook Pro',
-    description: 'The ultimate notebook for power users',
-    price: 1999.99,
-    category: 'Computers & Tablets',
-    features: {
-      processor: {
-        brand: 'Intel',
-        model: 'Core i9',
-        speed: '2.3 GHz',
-        cores: 8,
-        cache: '16 MB',
-      },
-      memory: {
-        type: 'DDR4',
-        size: '32 GB',
-        speed: '2666 MHz',
-      },
-      storage: {
-        type: 'SSD',
-        size: '1 TB',
-      },
-      display: {
-        size: '16 inches',
-        resolution: '3072x1920',
-        technology: 'Retina',
-        color_space: 'P3',
-        brightness: '500 nits',
-        refresh_rate: '60 Hz',
-      },
-      graphics: {
-        brand: 'AMD',
-        model: 'Radeon Pro 5500M',
-        memory: '4 GB GDDR6',
-      },
-      ports: [
-        {
-          type: 'Thunderbolt 3',
-          count: 4,
-          features: [
-            'Charging',
-            'DisplayPort',
-            'Thunderbolt (up to 40 Gbps)',
-            'USB 3.1 Gen 2 (up to 10 Gbps)',
-          ],
-        },
-        {
-          type: 'HDMI',
-          count: 1,
-        },
-      ],
-      battery: {
-        type: 'Lithium Polymer',
-        capacity: '100 Wh',
-        life: 'Up to 11 hours',
-      },
-      weight: '4.3 pounds',
-      dimensions: {
-        height: '0.64 inch',
-        width: '14.09 inches',
-        depth: '9.68 inches',
-      },
-      operating_system: 'macOS',
-      accessories: [
-        {
-          name: 'Apple Magic Keyboard',
-          price: 99.99,
-        },
-        {
-          name: 'Apple Magic Mouse 2',
-          price: 79.99,
-        },
-        {
-          name: 'USB-C to USB Adapter',
-          price: 19.99,
-        },
-      ],
-
+// ================================================================
 router.get('/car', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('car', {
     layout: 'basic',
     make: 'Toyota',
@@ -978,26 +1041,137 @@ router.get('/car', function (req, res) {
         premium_paint: 595,
       },
       total: 28990,
+    },
+  })
+})
+// ================================================================
+router.get('/task21', function (req, res) {
+  res.render('task21', {
+    layout: 'basic',
+    heading: {
+      main: {
+        title: 'JavaScript',
+        text: 'JavaScript is a popular high-level, dynamic, and interpreted programming language.',
+        button_text: {
+          solid: 'Open page',
+          outline: 'Add to cart',
+        },
+      },
+      second: {
+        title: 'Stack Overflow',
+        text: 'First-class functions',
+        button_text: {
+          solid: 'Open page',
+          outline: 'Add to cart',
+        },
+      },
+      subblock: {
+        title: 'JavaScript Weekly',
+        text: 'Prototype-based inheritance newsletter',
+        button_text: {
+          solid: 'Open page',
+          outline: 'Add to cart',
+        },
+      },
+    },
+    nested_display: {
+      title: 'HTML',
+      children_display: {
+        title: 'Outdated HTML tags',
+        text: 'tags that have been identified as deprecated and not recommended for use in HTML version 5',
+        button: {
+          text: 'Орen',
+        },
+      },
+      header_text: 'Sections',
+      button: {
+        text: 'Learn more',
+      },
+    },
+    paragraph: {
+      title: 'About modules',
+      text: 'Modules with import/export statements',
 
+      button: {
+        text: 'Open link page',
+        url: 'https://google.com',
+      },
+      list_name: [
+        {
+          text: 'Github',
+          url: 'https://github.com/',
+        },
+        {
+          text: 'Bootstrap',
+          url: 'https://getbootstrap.com/',
+        },
+      ],
     },
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
-
-// router.get Створює нам один ентпоїнт
-
-//           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/bootstrap', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('bootstrap', { layout: 'bootstrap' })
-  //                  ↑↑ сюди вводимо JSON дані
+// ================================================================
+router.get('/task22', function (req, res) {
+  res.render('task22', {
+    layout: 'basic',
+    page_header: {
+      title: 'InnovaMind',
+      description: 'Welcome to our wonderful community',
+    },
+    section: {
+      about_us: {
+        title_list: {
+          main: 'InnovaMind',
+          sub: 'InnovaMind is a forward-thinking startup focused on innovation. We are dedicated to creating efficient and powerful software through the use of first-class functions.',
+        },
+        button: { text: 'Show more' },
+      },
+      advantage: {
+        title: 'Advantage',
+        efficiency: {
+          title: 'Efficiency',
+          sub_title: 'Streamline your software development',
+          description:
+            'Streamline your software development with our innovative platform...',
+          button: 'Show more',
+        },
+        innovation: {
+          title: 'Innovation',
+          sub_title:
+            'Forward-thinking approach to programming',
+          description:
+            ' Stay ahead of the curve with our forward-thinking approach to programming...',
+          button: 'Show more',
+        },
+        collaboration: {
+          title: 'Collaboration',
+          sub_title: 'Connect with like-minded developers',
+          description:
+            'Connect with a community of like-minded developers to share knowledge and insights...',
+          button: 'Show more',
+        },
+      },
+      agreement: {
+        title: 'Terms of use',
+        info: {
+          sub_title: 'Check out our requirements',
+          detail: {
+            text: 'By using or accessing the service, you agree to be bound by the terms and conditions outlined in the agreement.',
+            button: 'Аccept',
+          },
+        },
+      },
+    },
+  })
 })
+// ================================================================
+router.get('/bootstrapNew', function (req, res) {
+  res.render('bootstrapNew', {
+    layout: 'bootstrap',
+  })
+})
+// ================================================================
 router.get('/task31', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('task31', {
     layout: 'basic',
     navigation: {
@@ -1034,7 +1208,7 @@ router.get('/task31', function (req, res) {
       cards: [
         {
           picture: {
-            src: 'http://surl.li/jcakg',
+            src: 'https://picsum.photos/400/200',
             alt: 'New York',
           },
           title: 'New York City',
@@ -1047,7 +1221,7 @@ router.get('/task31', function (req, res) {
         },
         {
           picture: {
-            src: 'http://surl.li/jcajr',
+            src: 'https://picsum.photos/400/200',
             alt: 'Paris',
           },
           title: 'Paris',
@@ -1060,7 +1234,7 @@ router.get('/task31', function (req, res) {
         },
         {
           picture: {
-            src: 'http://surl.li/jcakv',
+            src: 'https://picsum.photos/400/200',
             alt: 'Tokyo',
           },
           title: 'Tokyo',
@@ -1073,7 +1247,7 @@ router.get('/task31', function (req, res) {
         },
         {
           picture: {
-            src: 'http://surl.li/jcamf',
+            src: 'https://picsum.photos/400/200',
             alt: 'Sydney',
           },
           title: 'Sydney',
@@ -1247,100 +1421,1468 @@ router.get('/task31', function (req, res) {
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
-
-router.get('/task22', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('task22', {
-    layout: 'basic',
-    page_header: {
-      title: 'InnovaMind',
-      description: 'Welcome to our wonderful community',
+// ================================================================
+router.get('/shophome', function (req, res) {
+  res.render('shophome', {
+    layout: 'shop',
+    navigation: {
+      links: [
+        {
+          text: 'Home',
+          href: 'https://github.com/',
+        },
+        {
+          text: 'Contacts',
+          href: 'https://www.google.com/',
+        },
+        {
+          text: 'Help',
+          href: 'https://www.youtube.com/',
+        },
+      ],
     },
-    section: {
-      about_us: {
-        title_list: {
-          main: 'InnovaMind',
-          sub: 'InnovaMind is a forward-thinking startup focused on innovation. We are dedicated to creating efficient and powerful software through the use of first-class functions.',
+
+    newsBlock: {
+      title: 'Latest News',
+      cards: [
+        {
+          title: 'COVID-19 Vaccinations Begin in Europe',
+          description:
+            'As the world continues to grapple with the ongoing COVID-19 pandemic, Europe begins its vaccination rollout, with healthcare workers and the elderly among the first to receive the vaccine.',
+          isTop: false,
+          isNew: false,
         },
-        button: { text: 'Info' },
+        {
+          title: 'Tesla Stock Surges After Record Sales',
+          description:
+            "Tesla's stock price jumps 10% following the company's announcement of record sales in the last quarter, thanks in part to strong demand for its electric vehicles.",
+          isTop: true,
+          isNew: true,
+        },
+        {
+          title:
+            'New Study Shows Benefits of Meditation for Mental Health',
+          description:
+            'A new study published in the Journal of the American Medical Association finds that practicing mindfulness meditation can lead to improved mental health outcomes for people struggling with depression and anxiety.',
+          isTop: false,
+          isNew: false,
+        },
+        {
+          title: 'NASA Launches New Mars Rover',
+          description:
+            "NASA's Perseverance rover successfully launches on a mission to explore Mars, with the goal of collecting samples of the planet's surface and searching for signs of ancient microbial life.",
+          isTop: false,
+          isNew: true,
+        },
+        {
+          title:
+            'GameStop Shares Soar as Reddit Traders Rally',
+          description:
+            'Shares of GameStop surge as amateur traders on the social media platform Reddit rally to drive up the price, in what some are calling a battle between Wall Street and Main Street.',
+          isTop: false,
+          isNew: false,
+        },
+        {
+          title:
+            'UK Announces Plan to Ban Sale of Gas-Powered Cars by 2030',
+          description:
+            'In an effort to combat climate change, the UK government announces a plan to ban the sale of new gas-powered cars and vans by 2030, with hybrid vehicles to follow in 2035.',
+          isTop: true,
+          isNew: false,
+        },
+        {
+          title:
+            'New Study Shows Link Between Exercise and Longevity',
+          description:
+            'A new study published in the Journal of the American Medical Association suggests that regular exercise can help people live longer, with participants who exercised regularly having a lower risk of premature death.',
+          isTop: false,
+          isNew: false,
+        },
+        {
+          title: 'Amazon Expands Grocery Delivery Service',
+          description:
+            'Amazon announces an expansion of its grocery delivery service, with plans to offer free delivery to Prime members on orders over $35 and to expand its selection of fresh and organic produce.',
+          isTop: false,
+          isNew: true,
+        },
+      ],
+    },
+
+    goodsBlock: {
+      tabs: [
+        {
+          isActive: true,
+          isDisabled: false,
+          text: 'Electronics',
+        },
+        {
+          isActive: false,
+          isDisabled: false,
+          text: 'Home & Kitchen',
+        },
+        {
+          isActive: false,
+          isDisabled: false,
+          text: 'Clothing & Accessories',
+        },
+        {
+          isActive: false,
+          isDisabled: true,
+          text: 'Toys & Games',
+        },
+      ],
+      cards: [
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'iPhone 13',
+          description:
+            'The latest iPhone model features a new A15 Bionic chip, improved camera system, and longer battery life.',
+          isHot: false,
+          isNew: false,
+        },
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'MacBook Pro',
+          description:
+            "Apple's high-end laptop features a 16-inch Retina display, powerful M1 Pro or M1 Max chip, and up to 64GB of RAM.",
+          isHot: true,
+          isNew: false,
+        },
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'AirPods Pro',
+          description:
+            "Apple's premium wireless earbuds feature active noise cancellation, a customizable fit, and up to 4.5 hours of listening time.",
+          isHot: false,
+          isNew: false,
+        },
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'Sony Bravia XR A90J',
+          description:
+            'This OLED TV boasts a 4K resolution, HDR support, and a high refresh rate for smooth motion handling.',
+          isHot: false,
+          isNew: true,
+        },
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'Nintendo Switch OLED Model',
+          description:
+            'The latest iteration of the popular gaming console features a larger OLED screen and improved audio quality.',
+          isHot: false,
+          isNew: false,
+        },
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'Bose SoundLink Revolve+',
+          description:
+            'This portable Bluetooth speaker features 360-degree sound, water-resistant construction, and up to 16 hours of battery life.',
+          isHot: true,
+          isNew: true,
+        },
+      ],
+    },
+    subscribe: {
+      header: 'Unlock Premium Content',
+      description:
+        'Subscribe to access exclusive content and features.',
+      buttons: [
+        {
+          text: 'Register Now',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Buy Subscription',
+          link: 'https://www.youtube.com/',
+        },
+      ],
+    },
+    service: {
+      title: 'Our Services',
+      description:
+        'We offer a variety of services to meet your needs, including web design, content creation, and social media management.',
+      buttons: [
+        {
+          text: 'Show More',
+          link: 'https://www.youtube.com/',
+        },
+      ],
+    },
+
+    footer: [
+      [
+        {
+          text: 'Home',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Trending',
+          link: 'https://www.youtube.com/feed/trending',
+        },
+        {
+          text: 'Subscriptions',
+          link: 'https://www.youtube.com/feed/subscriptions',
+        },
+        {
+          text: 'Library',
+          link: 'https://www.youtube.com/feed/library',
+        },
+      ],
+      [
+        {
+          text: 'History',
+          link: 'https://www.youtube.com/feed/history',
+        },
+        {
+          text: 'Your Videos',
+          link: 'https://www.youtube.com/feed/my_videos',
+        },
+        {
+          text: 'Live',
+          link: 'https://www.youtube.com/live',
+        },
+        {
+          text: 'Settings',
+          link: 'https://www.youtube.com/account',
+        },
+      ],
+      [
+        {
+          text: 'Watch Later',
+          link: 'https://www.youtube.com/playlist?list=WL',
+        },
+        {
+          text: 'Liked Videos',
+          link: 'https://www.youtube.com/playlist?list=LL',
+        },
+        {
+          text: 'Music',
+          link: 'https://www.youtube.com/music',
+        },
+        {
+          text: 'Gaming',
+          link: 'https://www.youtube.com/gaming',
+        },
+      ],
+      [
+        {
+          text: 'Sports',
+          link: 'https://www.youtube.com/channel/UCo_q6aOlvPH7M-j_XGWVgXg',
+        },
+        {
+          text: 'News',
+          link: 'https://www.youtube.com/news',
+        },
+        {
+          text: 'Fashion & Beauty',
+          link: 'https://www.youtube.com/channel/UC1x8rV_f-2yPpzlN0JWZXIQ',
+        },
+        {
+          text: 'Learning',
+          link: 'https://www.youtube.com/learning',
+        },
+      ],
+      [
+        {
+          text: 'Report History',
+          link: 'https://www.youtube.com/feed/history/report_history',
+        },
+        {
+          text: 'Help',
+          link: 'https://support.google.com/youtube/?hl=en',
+        },
+        {
+          text: 'Send Feedback',
+          link: 'https://support.google.com/youtube/answer/4347644?hl=en',
+        },
+        {
+          text: 'About',
+          link: 'https://www.youtube.com/about/',
+        },
+      ],
+    ],
+  })
+})
+// ================================================================
+router.get('/shoporder', function (req, res) {
+  res.render('shoporder', {
+    layout: 'shop',
+    navigation: {
+      links: [
+        {
+          text: 'Home',
+          href: 'https://github.com/',
+        },
+        {
+          text: 'Contacts',
+          href: 'https://www.google.com/',
+        },
+        {
+          text: 'Help',
+          href: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Exit',
+          href: null,
+        },
+      ],
+    },
+
+    header: 'Оформлення замовлення',
+    contacts_data: {
+      title: 'Контактні дані',
+
+      buttons: [
+        {
+          text: 'Я новий покупець',
+          isPrimary: true,
+        },
+        {
+          text: 'Я постійний покупець',
+          isOutline: true,
+        },
+      ],
+      form: {
+        input: {
+          surname: {
+            label: 'Прізвище',
+            placeholder: 'Іванов',
+            caption: 'Введіть прізвище',
+          },
+          name: {
+            label: 'Ім’я',
+            placeholder: 'Іван',
+            caption: 'Введіть Ім’я',
+          },
+          phone: {
+            label: 'Мобільний телефон',
+            placeholder: '+38 (XXX) XXX XX XX',
+            caption: 'Введіть телефон',
+          },
+          email: {
+            label: 'Пошта',
+            placeholder: 'ivanivanov@ukr.net',
+            caption: 'Введіть Пошту',
+          },
+        },
+        switch: [
+          {
+            text: 'Отримувати інформацію про новинки',
+            isActive: false,
+          },
+          {
+            text: 'Отримувати інформацію про знижки',
+            isActive: true,
+          },
+        ],
       },
-      advantage: {
-        title: 'Advantage',
-        efficiency: {
-          title: 'Efficiency',
-          sub_title: 'Streamline your software development',
-          description:
-            'Streamline your software development with our innovative platform...',
-          button: 'Warning',
+    },
+    action_block: [
+      { text: 'Швидке замовлення', isSuccess: true },
+      { text: 'Видалити', isDanger: true },
+      { text: 'Детальніше', isInfo: true },
+    ],
+    total: {
+      title: 'Всього',
+      item_list: [
+        { name: 'Ноут', price: '25 000 ₴' },
+        { name: 'Мишка', price: '25 000 ₴' },
+        { name: 'Клава', price: '25 000 ₴' },
+      ],
+      additional_info: [
+        { text: 'Всього товарів', value: '75 000 ₴' },
+        { text: 'Купони', value: 'Немає' },
+        { text: 'Доставка', value: 'Безкоштовно' },
+      ],
+      total_price: {
+        text: 'Всього товарів',
+        value: '75 000 ₴',
+      },
+      button: [
+        {
+          text: 'Підтвердити замовлення',
+          isPrimary: true,
         },
-        innovation: {
-          title: 'Innovation',
-          sub_title:
-            'Forward-thinking approach to programming',
-          description:
-            ' Stay ahead of the curve with our forward-thinking approach to programming...',
-          button: 'Warning',
+        {
+          text: 'Відмінити купони',
+          isOutline: true,
         },
-        collaboration: {
-          title: 'Collaboration',
-          sub_title: 'Connect with like-minded developers',
-          description:
-            'Connect with a community of like-minded developers to share knowledge and insights...',
-          button: 'Warning',
+      ],
+    },
+    delivery: {
+      title: 'Доставка',
+      select: [
+        {
+          label: 'Місто доставки',
+          placeholder: 'Оберіть місто доставки',
+          options: [
+            { value: '1', text: 'Київ' },
+            { value: '2', text: 'Харків' },
+            { value: '3', text: 'Одеса' },
+            { value: '4', text: 'Львів' },
+            { value: '5', text: 'Дніпро' },
+            { value: '6', text: 'Донецьк' },
+          ],
+        },
+        {
+          label: 'Район доставки',
+          placeholder: 'Оберіть район доставки',
+          options: [
+            { value: '1', text: 'Голосіївський' },
+            { value: '2', text: 'Оболонський' },
+            { value: '3', text: 'Печерський' },
+            { value: '4', text: 'Дарницький' },
+            { value: '5', text: 'Деснянський' },
+            { value: '6', text: 'Подільський' },
+          ],
+        },
+      ],
+      delivery_type: [
+        {
+          type: 'Самовивіз з відділення Нової пошти',
+        },
+        {
+          type: 'Кур’єром Нової пошти',
+        },
+        {
+          type: 'Самовивіз з магазину',
+        },
+        {
+          type: 'Доставка закордон',
+        },
+      ],
+      payment: {
+        title: 'Оплата',
+        list: [
+          {
+            type: 'Оплата при отриманні',
+            description: 'За тарифами перевізника',
+          },
+          {
+            type: 'Оплатити зараз',
+          },
+        ],
+      },
+      contact: {
+        title: 'Контактні дані отримувача',
+        surname: {
+          label: 'Прізвище',
+          placeholder: 'Іванов',
+          caption: 'Введіть прізвище',
+        },
+        name: {
+          label: 'Ім’я',
+          placeholder: 'Іван',
+          caption: 'Введіть Ім’я',
+        },
+        phone: {
+          label: 'Мобільний телефон',
+          placeholder: '+38 (XXX) XXX XX XX',
+          caption: 'Введіть телефон',
+        },
+        email: {
+          label: 'Пошта',
+          placeholder: 'ivanivanov@ukr.net',
+          caption: 'Введіть Пошту',
         },
       },
-      agreement: {
-        title: 'Terms of use',
-        info: {
-          sub_title: 'Check out our requirements',
-          detail: {
-            text: 'By using or accessing the service, you agree to be bound by the terms and conditions outlined in the agreement.',
-            button: 'Аccept',
+      coment: {
+        label: 'Коментар',
+        placeholder: 'Я хочу, щоб',
+      },
+    },
+    coupon: {
+      title: 'Купони',
+      select: {
+        availabel_coupon: {
+          label: 'Наявні купони',
+          placeholder: 'Виберіть купон',
+          options: [
+            { value: '1', text: 'SEEYALATER' },
+            { value: '2', text: 'HOTEL10' },
+            { value: '3', text: 'DOWNLOAD25' },
+          ],
+        },
+        friend_coupon: {
+          label: 'Купони за запрошених друзів',
+          placeholder: 'Виберіть купон',
+          options: [
+            { value: '1', text: 'TRAVEL5' },
+            { value: '2', text: '75VACA' },
+            { value: '3', text: '150VACA' },
+          ],
+        },
+      },
+      add: {
+        friend: {
+          label: 'Запросіть друзів та отримайте ще купонів',
+          placeholder:
+            'Введіть контактні дані друзів через ;',
+          caption:
+            'Напишіть електронні адреси/телефон друзів через “;”',
+        },
+        colleague: {
+          label: 'Запросити колег',
+          placeholder:
+            'Введіть контактні дані колег через ;',
+          caption:
+            'Напишіть електронні адреси/телефон колег через “;”',
+        },
+      },
+    },
+    quiz: {
+      title: 'Домоможи краще нам тебе зрозуміти',
+      preference: {
+        title:
+          'Який тип обладнання ви зацікавлені в придбанні?',
+        options: [
+          'Смартфони',
+          'Ноутбуки',
+          'Планшети',
+          'ПК',
+          'Телевізори',
+        ],
+      },
+      your_expirience: {
+        label: 'Який у Вас досвід користування ПК',
+      },
+      purchase_frequency: {
+        label: 'Як часто ви купуєте обладнання?',
+        placeholder: 'Оберіть варіант',
+        options: [
+          { value: '1', text: 'Раз в тиждень' },
+          { value: '2', text: 'Раз в місяць' },
+          { value: '3', text: 'Раз в рік' },
+        ],
+      },
+      factors: {
+        title:
+          'Які з наведених нижче факторів є для вас важливими при купівлі обладнання?',
+        options: [
+          'Ціна',
+          'Репутація бренду',
+          'Якість',
+          'Особливості',
+          'Гарантія',
+          'Доступність',
+          'Обслуговування клієнтів',
+        ],
+      },
+    },
+    footer: [
+      [
+        {
+          text: 'Home',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Trending',
+          link: 'https://www.youtube.com/feed/trending',
+        },
+        {
+          text: 'Subscriptions',
+          link: 'https://www.youtube.com/feed/subscriptions',
+        },
+        {
+          text: 'Library',
+          link: 'https://www.youtube.com/feed/library',
+        },
+      ],
+      [
+        {
+          text: 'History',
+          link: 'https://www.youtube.com/feed/history',
+        },
+        {
+          text: 'Your Videos',
+          link: 'https://www.youtube.com/feed/my_videos',
+        },
+        {
+          text: 'Live',
+          link: 'https://www.youtube.com/live',
+        },
+        {
+          text: 'Settings',
+          link: 'https://www.youtube.com/account',
+        },
+      ],
+      [
+        {
+          text: 'Watch Later',
+          link: 'https://www.youtube.com/playlist?list=WL',
+        },
+        {
+          text: 'Liked Videos',
+          link: 'https://www.youtube.com/playlist?list=LL',
+        },
+        {
+          text: 'Music',
+          link: 'https://www.youtube.com/music',
+        },
+        {
+          text: 'Gaming',
+          link: 'https://www.youtube.com/gaming',
+        },
+      ],
+      [
+        {
+          text: 'Sports',
+          link: 'https://www.youtube.com/channel/UCo_q6aOlvPH7M-j_XGWVgXg',
+        },
+        {
+          text: 'News',
+          link: 'https://www.youtube.com/news',
+        },
+        {
+          text: 'Fashion & Beauty',
+          link: 'https://www.youtube.com/channel/UC1x8rV_f-2yPpzlN0JWZXIQ',
+        },
+        {
+          text: 'Learning',
+          link: 'https://www.youtube.com/learning',
+        },
+      ],
+      [
+        {
+          text: 'Report History',
+          link: 'https://www.youtube.com/feed/history/report_history',
+        },
+        {
+          text: 'Help',
+          link: 'https://support.google.com/youtube/?hl=en',
+        },
+        {
+          text: 'Send Feedback',
+          link: 'https://support.google.com/youtube/answer/4347644?hl=en',
+        },
+        {
+          text: 'About',
+          link: 'https://www.youtube.com/about/',
+        },
+      ],
+    ],
+  })
+  //                  ↑↑ сюди вводимо JSON дані
+})
+// ================================================================
+router.get('/shopcart', function (req, res) {
+  res.render('shopcart', {
+    layout: 'shop',
+    navigation: {
+      links: [
+        {
+          text: 'Home',
+          href: 'https://github.com/',
+        },
+        {
+          text: 'Contacts',
+          href: 'https://www.google.com/',
+        },
+        {
+          text: 'Help',
+          href: 'https://www.youtube.com/',
+        },
+      ],
+    },
+
+    header: {
+      title: 'Кошик',
+      button: {
+        text: 'Продовжити покупки',
+        link: 'https://www.youtube.com/',
+      },
+    },
+
+    goodsBlock: [
+      {
+        image: 'https://picsum.photos/110/110',
+        name: 'Samsung Galaxy S21 Ultra ',
+        description:
+          'екран 6.8", процесор Exynos 2100/Snapdragon 888, 12 ГБ ОЗУ, камера 108 МП, акумулятор 5000 мАг',
+        price: { title: 'Ціна', value: '25 000 ₴' },
+        amount: '1 шт.',
+        buttons: [
+          { text: 'Додати', isPrimary: true },
+          { text: 'Видалити', isDanger: true },
+        ],
+      },
+      {
+        image: 'https://picsum.photos/110/110',
+        name: 'Ноутбук Dell XPS 13',
+        description:
+          'екран 13.3", процесор Intel Core i7-1165G7, 16 ГБ ОЗУ, SSD на 512 ГБ, вага 1.2 кг.',
+        price: { title: 'Ціна', value: '25 000 ₴' },
+
+        amount: '1 шт.',
+        buttons: [
+          { text: 'Додати', isPrimary: true },
+          { text: 'Видалити', isDanger: true },
+        ],
+      },
+      {
+        image: 'https://picsum.photos/110/110',
+        name: 'Телевізор LG OLED CX',
+        description:
+          'екран 55", роздільна здатність 4K, Smart TV, HDR, звук Dolby Atmos, 4 HDMI порти, 3 USB порти.',
+        price: { title: 'Ціна', value: '25 000 ₴' },
+
+        amount: '1 шт.',
+        buttons: [
+          { text: 'Додати', isPrimary: true },
+          { text: 'Видалити', isDanger: true },
+        ],
+      },
+      {
+        image: 'https://picsum.photos/110/110',
+        name: 'Навушники Sony WH-1000XM4',
+        description:
+          'Bluetooth 5.0, активне шумозаглушення, 30 годин автономної роботи, сенсорне управління, вага 254 г.',
+        price: { title: 'Ціна', value: '25 000 ₴' },
+
+        amount: '1 шт.',
+        buttons: [
+          { text: 'Додати', isPrimary: true },
+          { text: 'Видалити', isDanger: true },
+        ],
+      },
+    ],
+
+    total: {
+      title: 'Сума замовлення',
+      amount: '75 000 ₴',
+      delivery: 'Без доставки',
+      buttons: [
+        {
+          text: 'Оформити замовлення',
+          link: 'https://www.youtube.com/',
+          isSuccess: true,
+        },
+        {
+          text: 'Офрмити кредит',
+          link: 'https://www.youtube.com/',
+          isOutline: true,
+        },
+      ],
+    },
+
+    goodsOtherBlock: {
+      title: 'See other products',
+      cards: [
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'iPhone 13',
+          description:
+            'The latest iPhone model features a new A15 Bionic chip, improved camera system, and longer battery life.',
+          isHot: false,
+          idNew: false,
+        },
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'MacBook Pro',
+          description:
+            "Apple's high-end laptop features a 16-inch Retina display, powerful M1 Pro or M1 Max chip, and up to 64GB of RAM.",
+          isHot: true,
+          idNew: false,
+        },
+        {
+          image: 'https://picsum.photos/400/200',
+          title: 'AirPods Pro',
+          description:
+            "Apple's premium wireless earbuds feature active noise cancellation, a customizable fit, and up to 4.5 hours of listening time.",
+          isHot: false,
+          idNew: false,
+        },
+      ],
+    },
+
+    subscribe: {
+      header: 'Unlock Premium Content',
+      description:
+        'Subscribe to access exclusive content and features.',
+      buttons: [
+        {
+          text: 'Register Now',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Buy Subscription',
+          link: 'https://www.youtube.com/',
+        },
+      ],
+    },
+
+    footer: [
+      [
+        {
+          text: 'Home',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Trending',
+          link: 'https://www.youtube.com/feed/trending',
+        },
+        {
+          text: 'Subscriptions',
+          link: 'https://www.youtube.com/feed/subscriptions',
+        },
+        {
+          text: 'Library',
+          link: 'https://www.youtube.com/feed/library',
+        },
+      ],
+      [
+        {
+          text: 'History',
+          link: 'https://www.youtube.com/feed/history',
+        },
+        {
+          text: 'Your Videos',
+          link: 'https://www.youtube.com/feed/my_videos',
+        },
+        {
+          text: 'Live',
+          link: 'https://www.youtube.com/live',
+        },
+        {
+          text: 'Settings',
+          link: 'https://www.youtube.com/account',
+        },
+      ],
+      [
+        {
+          text: 'Watch Later',
+          link: 'https://www.youtube.com/playlist?list=WL',
+        },
+        {
+          text: 'Liked Videos',
+          link: 'https://www.youtube.com/playlist?list=LL',
+        },
+        {
+          text: 'Music',
+          link: 'https://www.youtube.com/music',
+        },
+        {
+          text: 'Gaming',
+          link: 'https://www.youtube.com/gaming',
+        },
+      ],
+      [
+        {
+          text: 'Sports',
+          link: 'https://www.youtube.com/channel/UCo_q6aOlvPH7M-j_XGWVgXg',
+        },
+        {
+          text: 'News',
+          link: 'https://www.youtube.com/news',
+        },
+        {
+          text: 'Fashion & Beauty',
+          link: 'https://www.youtube.com/channel/UC1x8rV_f-2yPpzlN0JWZXIQ',
+        },
+        {
+          text: 'Learning',
+          link: 'https://www.youtube.com/learning',
+        },
+      ],
+      [
+        {
+          text: 'Report History',
+          link: 'https://www.youtube.com/feed/history/report_history',
+        },
+        {
+          text: 'Help',
+          link: 'https://support.google.com/youtube/?hl=en',
+        },
+        {
+          text: 'Send Feedback',
+          link: 'https://support.google.com/youtube/answer/4347644?hl=en',
+        },
+        {
+          text: 'About',
+          link: 'https://www.youtube.com/about/',
+        },
+      ],
+    ],
+  })
+  //                  ↑↑ сюди вводимо JSON дані
+})
+// ================================================================
+router.get('/shopprofile', function (req, res) {
+  res.render('shopprofile', {
+    layout: 'shop',
+    navigation: {
+      links: [
+        {
+          text: 'Home',
+          href: 'https://github.com/',
+        },
+        {
+          text: 'Contacts',
+          href: 'https://www.google.com/',
+        },
+        {
+          text: 'Help',
+          href: 'https://www.youtube.com/',
+        },
+      ],
+    },
+
+    header: 'Мої замовлення',
+
+    purchase: {
+      tabs: ['Всі замовлення', 'Гарантія та повернення'],
+      actionBlock: {
+        input: { placeholder: 'Placeholder' },
+        buttons: [
+          {
+            text: 'Знайти',
+            link: 'https://www.youtube.com/',
+            isSuccess: true,
+          },
+          {
+            text: 'Виділити все',
+            link: 'https://www.youtube.com/',
+            isOutline: true,
+          },
+          {
+            text: 'Очистити все',
+            link: 'https://www.youtube.com/',
+            isDanger: true,
+          },
+        ],
+      },
+      itemList: [
+        {
+          number: '№12587463 від 01.01.2023',
+          status: 'Виконано',
+          amount: { title: 'Сума', value: '25 000 ₴' },
+          images: ['https://picsum.photos/110/100'],
+          button: {
+            text: 'Детальніше',
+            link: 'https://www.youtube.com/',
+            isPrimary: true,
+          },
+        },
+        {
+          number: '№12587463 від 01.01.2023',
+          status: 'Виконано',
+          amount: { title: 'Сума', value: '25 000 ₴' },
+          images: [
+            'https://picsum.photos/110/100',
+            'https://picsum.photos/110/100',
+            'https://picsum.photos/110/100',
+          ],
+          button: {
+            text: 'Детальніше',
+            link: 'https://www.youtube.com/',
+            isPrimary: true,
+          },
+        },
+        {
+          number: '№12587463 від 01.01.2023',
+          status: 'Виконано',
+          amount: { title: 'Сума', value: '25 000 ₴' },
+          images: [
+            'https://picsum.photos/110/100',
+            'https://picsum.photos/110/100',
+          ],
+          button: {
+            text: 'Детальніше',
+            link: 'https://www.youtube.com/',
+            isPrimary: true,
+          },
+        },
+      ],
+    },
+    userInfo: {
+      title: 'Особиста інформація',
+      profileData: {
+        title: 'Особисті дані',
+        fullName: {
+          surname: {
+            title: 'Прізвище',
+            value: 'Іванов',
+          },
+          name: {
+            title: 'Ім’я',
+            value: 'Іван',
+          },
+          middleName: {
+            title: 'По-батькові',
+            value: 'Іванович',
+          },
+        },
+        otherInfo: {
+          birthday: {
+            title: 'Дата народження',
+            value: '01.01.2000',
+          },
+          sex: {
+            title: 'Стать',
+            value: 'Чоловіча',
+          },
+          language: {
+            title: 'Мова',
+            value: 'Українська',
           },
         },
       },
+      buttons: [
+        {
+          text: 'Редагувати',
+          link: 'https://www.youtube.com/',
+          isPrimary: true,
+        },
+        {
+          text: 'Очистити',
+          link: 'https://www.youtube.com/',
+          isSecondary: true,
+        },
+        {
+          text: 'Видалити',
+          link: 'https://www.youtube.com/',
+          isDanger: true,
+        },
+      ],
+      recipients: {
+        title: 'Отримувачі',
+        users: [
+          {
+            name: 'Іванов Іван Іванович',
+            phone: '+38 (098) 222 22 22',
+            button: {
+              text: 'Редагувати',
+              link: 'https://www.youtube.com/',
+            },
+          },
+          {
+            name: 'Петров Петро Петрович',
+            phone: '+38 (098) 111 11 11',
+            button: {
+              text: 'Редагувати',
+              link: 'https://www.youtube.com/',
+            },
+          },
+        ],
+      },
+      contacts: {
+        title: 'Контакти',
+        contactData: [
+          {
+            title: 'Номер телефону',
+            value: '+38 (098) 222 22 22',
+            button: {
+              text: 'Редагувати',
+              link: 'https://www.youtube.com/',
+              isPrimary: true,
+            },
+          },
+          {
+            title: 'Додатковий номер телефону',
+            value: '+38 (098) 111 11 11',
+            button: {
+              text: 'Очистити',
+              link: 'https://www.youtube.com/',
+              isSecondary: true,
+            },
+          },
+          {
+            title: 'Електронна адреса',
+            value: 'ivanivanov@ukr.net',
+            button: {
+              text: 'Видалити',
+              link: 'https://www.youtube.com/',
+              isDanger: true,
+            },
+          },
+        ],
+      },
     },
+
+    footer: [
+      [
+        {
+          text: 'Home',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Trending',
+          link: 'https://www.youtube.com/feed/trending',
+        },
+        {
+          text: 'Subscriptions',
+          link: 'https://www.youtube.com/feed/subscriptions',
+        },
+        {
+          text: 'Library',
+          link: 'https://www.youtube.com/feed/library',
+        },
+      ],
+      [
+        {
+          text: 'History',
+          link: 'https://www.youtube.com/feed/history',
+        },
+        {
+          text: 'Your Videos',
+          link: 'https://www.youtube.com/feed/my_videos',
+        },
+        {
+          text: 'Live',
+          link: 'https://www.youtube.com/live',
+        },
+        {
+          text: 'Settings',
+          link: 'https://www.youtube.com/account',
+        },
+      ],
+      [
+        {
+          text: 'Watch Later',
+          link: 'https://www.youtube.com/playlist?list=WL',
+        },
+        {
+          text: 'Liked Videos',
+          link: 'https://www.youtube.com/playlist?list=LL',
+        },
+        {
+          text: 'Music',
+          link: 'https://www.youtube.com/music',
+        },
+        {
+          text: 'Gaming',
+          link: 'https://www.youtube.com/gaming',
+        },
+      ],
+      [
+        {
+          text: 'Sports',
+          link: 'https://www.youtube.com/channel/UCo_q6aOlvPH7M-j_XGWVgXg',
+        },
+        {
+          text: 'News',
+          link: 'https://www.youtube.com/news',
+        },
+        {
+          text: 'Fashion & Beauty',
+          link: 'https://www.youtube.com/channel/UC1x8rV_f-2yPpzlN0JWZXIQ',
+        },
+        {
+          text: 'Learning',
+          link: 'https://www.youtube.com/learning',
+        },
+      ],
+      [
+        {
+          text: 'Report History',
+          link: 'https://www.youtube.com/feed/history/report_history',
+        },
+        {
+          text: 'Help',
+          link: 'https://support.google.com/youtube/?hl=en',
+        },
+        {
+          text: 'Send Feedback',
+          link: 'https://support.google.com/youtube/answer/4347644?hl=en',
+        },
+        {
+          text: 'About',
+          link: 'https://www.youtube.com/about/',
+        },
+      ],
+    ],
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
 
-//            ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/list', function (req, res) {
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('list', {
-    // ↙ сюди вводимо JSON дані
-    list: [
-      { name: 'First Button' },
-      { name: 'Secondary Button' },
-      { name: 'Error Button' },
-      { name: 'Submit Button' },
-    ],
-    user: {
-      name: { value: 'Ivan', text: 'Ivanov', value: true },
-    },
-    role: { text: 'Admin' },
-    isConfirm: { age: { value: 32 } },
-  })
-})
-<<<<<<< HEAD
 // ================================================================
-//            ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/index8', function (req, res) {
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index8')
+
+router.get('/shopreview', function (req, res) {
+  res.render('shopreview', {
+    layout: 'shop',
+    navigation: {
+      links: [
+        {
+          text: 'Home',
+          href: 'https://github.com/',
+        },
+        {
+          text: 'Contacts',
+          href: 'https://www.google.com/',
+        },
+        {
+          text: 'Help',
+          href: 'https://www.youtube.com/',
+        },
+      ],
+    },
+    formBlock: {
+      header: 'Відгуки покупців про Ноут',
+      rating: {
+        title: 'Оцінка',
+        value: '4.5/5',
+      },
+      actionBlock: {
+        tabs: [
+          { text: 'Про товар' },
+          { text: 'Характеристики' },
+          { text: 'Відгуки', isActive: true },
+        ],
+        report: {
+          title: 'Залиште відгук про товар',
+          button: {
+            text: 'Написати відгук',
+            link: 'https://www.youtube.com/',
+          },
+        },
+      },
+      feedbackBlock: {
+        title:
+          'Хочете поділитись своєю думкою про наш магазин?',
+        buttons: [
+          {
+            text: 'Додати відгук',
+            isWarning: true,
+            link: 'https://www.youtube.com/',
+          },
+          {
+            text: 'Позитивні відгуки',
+            isSuccess: true,
+            link: 'https://www.youtube.com/',
+          },
+          {
+            text: 'Негативні відгуки',
+            isDanger: true,
+            link: 'https://www.youtube.com/',
+          },
+        ],
+      },
+      goodsInfo: {
+        photo: 'https://picsum.photos/110/100',
+        name: 'Ноут Asus',
+        price: '25 000 ₴',
+        inMarket: true,
+        buttons: [
+          {
+            text: 'Купити',
+            isPrimary: true,
+            link: 'https://www.youtube.com/',
+          },
+          {
+            text: 'Купити в кредит',
+            isSecondary: true,
+            link: 'https://www.youtube.com/',
+          },
+        ],
+        seller: {
+          title: 'Продавець',
+          value: 'Machinery',
+        },
+      },
+    },
+
+    reviewList: [
+      {
+        title: {
+          userName: 'Іван Іванов',
+          caption: 'Відгук покупця',
+          date: '1 січня 2023',
+        },
+        reviewBody: {
+          seller: {
+            title: 'Продавець',
+            value: 'Machinery',
+          },
+          rating: {
+            title: 'Оцінка',
+            value: '5/5',
+          },
+          text: [
+            "Цей ноутбук має гарний дизайн та добре виконує свої основні функції. Швидкість роботи та продуктивність в цілому є на задовільному рівні. Крім того, присутній достатній обсяг пам'яті та потужність акумулятора.",
+            ' Однак, можливі проблеми з перегрівом під час тривалого використання, та може бути недостатньої ємності жорсткого диска для потреб користувача. Крім того, ціна може бути дещо високою порівняно з аналогічними моделями.',
+          ],
+          advantages: {
+            title: 'Переваги',
+            text: 'Дизайн, швидкість роботи, обсяг пам’яті, акумулятор',
+          },
+          disadvantages: {
+            title: 'Недоліки',
+            text: 'Перегрів, ємкість жосткого диску',
+          },
+          images: [
+            'https://picsum.photos/110/100',
+            'https://picsum.photos/110/100',
+            'https://picsum.photos/110/100',
+          ],
+          coments: [
+            {
+              userName: 'Користувач',
+              date: '1 січня 2023',
+              text: 'Дякую за відгук, я подумаю про недоліки, про які ви згадували, перш ніж зробити покупку.',
+            },
+            {
+              userName: 'Користувач',
+              date: '3 січня 2023',
+              text: 'Дякую за корисний відгук! Це допомогло мені зробити вибір щодо покупки ноутбука.',
+            },
+            {
+              userName: 'Користувач',
+              date: '10 січня 2023',
+              text: 'Дякую за відгук, але я хотів би дізнатися більше деталей про проблеми з перегрівом, щоб зробити зважений вибір перед покупкою.',
+            },
+          ],
+        },
+      },
+      {
+        title: {
+          userName: 'Петро Петров',
+          caption: 'Відгук покупця',
+          date: '1 січня 2023',
+        },
+        reviewBody: {
+          seller: {
+            title: 'Продавець',
+            value: 'Machinery',
+          },
+          rating: {
+            title: 'Оцінка',
+            value: '5/5',
+          },
+          text: [
+            "Цей ноутбук має гарний дизайн та добре виконує свої основні функції. Швидкість роботи та продуктивність в цілому є на задовільному рівні. Крім того, присутній достатній обсяг пам'яті та потужність акумулятора.",
+          ],
+          advantages: {
+            title: 'Переваги',
+            text: 'Обсяг пам’яті, акумулятор',
+          },
+          disadvantages: {
+            title: 'Недоліки',
+            text: 'Не виявлено',
+          },
+          images: ['https://picsum.photos/110/100'],
+          coments: [
+            {
+              userName: 'Користувач',
+              date: '1 січня 2023',
+              text: 'Дякую за відгук, я подумаю про недоліки, про які ви згадували, перш ніж зробити покупку.',
+            },
+          ],
+        },
+      },
+    ],
+
+    service: {
+      title: 'Our Services',
+      description:
+        'We offer a variety of services to meet your needs, including web design, content creation, and social media management.',
+      buttons: [
+        {
+          text: 'Show More',
+          link: 'https://www.youtube.com/',
+        },
+      ],
+    },
+
+    footer: [
+      [
+        {
+          text: 'Home',
+          link: 'https://www.youtube.com/',
+        },
+        {
+          text: 'Trending',
+          link: 'https://www.youtube.com/feed/trending',
+        },
+        {
+          text: 'Subscriptions',
+          link: 'https://www.youtube.com/feed/subscriptions',
+        },
+        {
+          text: 'Library',
+          link: 'https://www.youtube.com/feed/library',
+        },
+      ],
+      [
+        {
+          text: 'History',
+          link: 'https://www.youtube.com/feed/history',
+        },
+        {
+          text: 'Your Videos',
+          link: 'https://www.youtube.com/feed/my_videos',
+        },
+        {
+          text: 'Live',
+          link: 'https://www.youtube.com/live',
+        },
+        {
+          text: 'Settings',
+          link: 'https://www.youtube.com/account',
+        },
+      ],
+      [
+        {
+          text: 'Watch Later',
+          link: 'https://www.youtube.com/playlist?list=WL',
+        },
+        {
+          text: 'Liked Videos',
+          link: 'https://www.youtube.com/playlist?list=LL',
+        },
+        {
+          text: 'Music',
+          link: 'https://www.youtube.com/music',
+        },
+        {
+          text: 'Gaming',
+          link: 'https://www.youtube.com/gaming',
+        },
+      ],
+      [
+        {
+          text: 'Sports',
+          link: 'https://www.youtube.com/channel/UCo_q6aOlvPH7M-j_XGWVgXg',
+        },
+        {
+          text: 'News',
+          link: 'https://www.youtube.com/news',
+        },
+        {
+          text: 'Fashion & Beauty',
+          link: 'https://www.youtube.com/channel/UC1x8rV_f-2yPpzlN0JWZXIQ',
+        },
+        {
+          text: 'Learning',
+          link: 'https://www.youtube.com/learning',
+        },
+      ],
+      [
+        {
+          text: 'Report History',
+          link: 'https://www.youtube.com/feed/history/report_history',
+        },
+        {
+          text: 'Help',
+          link: 'https://support.google.com/youtube/?hl=en',
+        },
+        {
+          text: 'Send Feedback',
+          link: 'https://support.google.com/youtube/answer/4347644?hl=en',
+        },
+        {
+          text: 'About',
+          link: 'https://www.youtube.com/about/',
+        },
+      ],
+    ],
+  })
+  //                  ↑↑ сюди вводимо JSON дані
 })
-=======
 
->>>>>>> 76a6e65ddfba4eb70bd873ee56b809a674e7509b
-// Підключаємо роутер до бек-енду
+// ================================================================
 router.get('/shopcatalog', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopcatalog', {
-    // layout: 'shop',
+    layout: 'shop',
     navigation: {
       links: [
         {
@@ -1708,4 +3250,5 @@ router.get('/shopcatalog', function (req, res) {
 })
 
 // ================================================================
+
 module.exports = router
