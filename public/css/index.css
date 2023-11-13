@@ -1,1 +1,511 @@
+.lesson-four-task-one .btn:hover {
+  color: red;
+  background-color: yellow;
+}
+/* Змінимо фон заголовка на зелений при наведенні на посилання */
+.lesson-four-task-two .link:hover + .title {
+  background-color: green;
+}
+/* Змінимо колір тексту відвіданого посилання на жовтий */
+.lesson-four-task-three .link:visited {
+  color: yellow;
+}
+/* Змінимо колір тексту посилання в блоку "sidebar" на червоний */
+.lesson-four-task-four #sidebar .link:link {
+  color: red;
+}
+.lesson-four-task-five .btn:active {
+  background-color: blue;
+}
+.lesson-four-task-six .btn:focus {
+  color: orange;
+  background-color: orange;
+}
 
+/* Зручні стилі для зазначених класів */
+.lesson-four-task-six .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lesson-four-task-six .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+
+.lesson-four-task-six {
+  padding: 15px;
+}
+
+.lesson-four-task-six .btn {
+  padding: 10px;
+  background-color: #007bff; /* колір кнопки */
+  color: #fff; /* колір тексту кнопки */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* робить зміни плавними */
+}
+
+.lesson-four-task-six .btn:hover {
+  background-color: #0056b3; /* змінює колір при наведенні */
+}
+
+.lesson-four-task-seven #target:target {
+  color: white;
+  background-color: green;
+}
+
+.lesson-four-task-seven .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-seven .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-seven {
+  padding: 15px;
+}
+.lesson-four-task-seven #target {
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* робить зміни плавними */
+}
+
+.lesson-four-task-seven #target:hover {
+  background-color: darkgreen; /* змінює колір при наведенні */
+}
+.lesson-four-task-eight #checkbox:checked + #target {
+  color: white;
+  background-color: blue;
+}
+.lesson-four-task-eight.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-eight.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-eight {
+  padding: 15px;
+}
+.lesson-four-task-eight #target {
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* робить зміни плавними */
+}
+.lesson-four-task-eight #target:hover {
+  background-color: darkblue; /* змінює колір при наведенні */
+}
+
+.lesson-four-task-nine :lang(uk) {
+  color: blue;
+}
+.lesson-four-task-nine .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-nine .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-nine {
+  padding: 15px;
+}
+
+/* Змінює колір тексту на червоний та фон на жовтий для елементів форми, які включені та доступні для введення */
+.lesson-four-task-ten form :enabled {
+  color: red;
+  background-color: yellow;
+}
+.lesson-four-task-ten .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-ten .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-ten {
+  padding: 15px;
+}
+.lesson-four-task-ten .form-group {
+  margin-bottom: 15px;
+}
+.lesson-four-task-ten .form-control {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.lesson-four-task-ten .btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.lesson-four-task-ten .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Змінює фоновий колір на жовтий в полях введення, які є неактивними */
+.lesson-four-task-eleven input:disabled {
+  background-color: yellow;
+}
+/* Змінює фоновий колір на жовтий в кнопці, яка є неактивною */
+.lesson-four-task-eleven button:disabled {
+  background-color: yellow;
+}
+.lesson-four-task-eleven .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-eleven.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-eleven {
+  padding: 15px;
+}
+.lesson-four-task-eleven label {
+  display: block;
+  margin-bottom: 5px;
+}
+.lesson-four-task-eleven input,
+button {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.lesson-four-task-eleven button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.lesson-four-task-eleven button:hover {
+  background-color: #0056b3;
+}
+/* Встановити жовтий фоновий колір для елементів <input>, що без атрибута readonly */
+.lesson-four-task-twelve input:read-write {
+  background-color: yellow;
+}
+
+/* Зручні стилі для зазначених класів */
+.lesson-four-task-twelve.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lesson-four-task-twelve.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+
+.lesson-four-task-twelve {
+  padding: 15px;
+}
+
+.lesson-four-task-twelve label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.lesson-four-task-twelve input,
+button {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.lesson-four-task-twelve button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lesson-four-task-twelve button:hover {
+  background-color: #0056b3;
+}
+/* Встановіть жовтий фоновий колір для інпуту з атрибутом readonly */
+.lesson-four-task-thirteen input[readonly] {
+  background-color: yellow;
+}
+.lesson-four-task-thirteen .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-thirteen .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-thirteen .lesson-four-task-thirteen {
+  padding: 15px;
+}
+.lesson-four-task-thirteen input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+/* Зробити поле вводу зеленим, коли введене значення коректне */
+.lesson-four-task-fourteen input:valid {
+  border: 1px solid green;
+}
+/* Зробити поле вводу червоним, коли введене значення не коректне */
+.lesson-four-task-fourteen input:invalid {
+  border: 1px solid red;
+}
+/* Зручні стилі для зазначених класів */
+.lesson-four-task-fourteen .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-fourteen .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-fourteen {
+  padding: 15px;
+}
+.lesson-four-task-fourteen input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+/* Змініть фоновий колір на червоний для необов'язкового текстового поля */
+.lesson-four-task-fifteen input:optional,
+.lesson-four-task-fifteen textarea:optional {
+  background-color: red;
+}
+.lesson-four-task-fifteen .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-fifteen.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-fifteen.lesson-four-task-fifteen {
+  padding: 15px;
+}
+.lesson-four-task-fifteen form {
+  display: flex;
+  flex-direction: column;
+}
+.lesson-four-task-fifteen label {
+  margin-bottom: 5px;
+}
+.lesson-four-task-fifteen input,
+textarea {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.lesson-four-task-fifteen button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.lesson-four-task-fifteen button:hover {
+  background-color: #0056b3;
+}
+/* Змінити колір тексту поля вводу на червоний, якщо значення не входить до діапазону від 0 до 100 */
+.lesson-four-task-sixteen input:out-of-range {
+  color: red;
+}
+.lesson-four-task-sixteen.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-sixteen.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-sixteen {
+  padding: 15px;
+}
+.lesson-four-task-sixteen form {
+  display: flex;
+  flex-direction: column;
+}
+.lesson-four-task-sixteen label {
+  margin-bottom: 5px;
+}
+.lesson-four-task-sixteen input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+/* Змініть колір тексту поля вводу на червоний, якщо значення входять до діапазону від 0 до 100 */
+.lesson-four-task-seventeen input:in-range {
+  color: red;
+}
+/* Зручні стилі для зазначених класів */
+.lesson-four-task-seventeen .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-seventeen .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-seventeen {
+  padding: 15px;
+}
+.lesson-four-task-seventeen form {
+  display: flex;
+  flex-direction: column;
+}
+.lesson-four-task-seventeen label {
+  margin-bottom: 5px;
+}
+.lesson-four-task-seventeen input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.lesson-four-task-eighteen input:placeholder-shown {
+  background-color: red;
+}
+.lesson-four-task-eighteen input:focus::placeholder {
+  color: transparent;
+}
+/* Зручні стилі для зазначених класів */
+.lesson-four-task-eighteen .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-eighteen .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-eighteen {
+  padding: 15px;
+}
+.lesson-four-task-eighteen input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.lesson-four-task-eighteen input:focus {
+  border-color: blue;
+}
+.lesson-four-task-nineteen .btn-group:focus-within button {
+  color: white;
+  background-color: yellow;
+}
+.lesson-four-task-nineteen .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-nineteen .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-nineteen {
+  padding: 15px;
+}
+.lesson-four-task-nineteen .btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+.lesson-four-task-nineteen button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+/* Змініть колір фону на червоний при валідації форми з помилкою */
+.lesson-four-task-twenty form:invalid {
+  background-color: red;
+}
+.lesson-four-task-twenty.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lesson-four-task-twenty .card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+.lesson-four-task-twenty {
+  padding: 15px;
+}
+.lesson-four-task-twenty form {
+  display: flex;
+  flex-direction: column;
+}
+.lesson-four-task-twenty label {
+  margin-bottom: 5px;
+}
+.lesson-four-task-twenty input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.lesson-four-task-twenty button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.lesson-four-task-twenty button:hover {
+  background-color: #0056b3;
+}
